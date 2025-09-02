@@ -67,7 +67,7 @@ body {
 }
 #bear-fixed {
   position: fixed;
-  bottom: 0px;  /* отступ снизу */
+  bottom: -5px;  /* отступ снизу */
   left: 0px;   /* отступ справа */
   z-index: 9999; /* поверх всего */
 }
@@ -235,6 +235,11 @@ input[type="text"] {
   <h2>Добро пожаловать!</h2>
   <p>Выберите раздел:</p>
   <button class="btn" id="praktiki-btn">Практики</button>
+  <a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2024_2025_final.pdf" target="_blank">
+<a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2024_2025_final.pdf" target="_blank" class="btn">
+  Белая кНИГА
+</a>
+  <button class="btn" id="veterany-btn">Первакам</button>
   <button class="btn" id="veterany-btn">Ветераны</button>
 </div>
 
@@ -402,6 +407,10 @@ const pdfPaths = {
 const windowA = `<h2>Добро пожаловать!</h2>
 <p>Выберите раздел:</p>
 <button class="btn" id="praktiki-btn">Практики</button>
+<a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2024_2025_final.pdf" target="_blank" class="btn">
+  Белая кНИГА
+</a>
+<button class="btn" id="praktiki-btn">Первакам</button>
 <button class="btn" id="veterany-btn">Ветераны</button>`;
 // Функция для показа картинки ветеранов
 function showVeterans() {
