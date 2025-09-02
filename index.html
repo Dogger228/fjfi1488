@@ -3,121 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <title>Институт ФЯФИ</title>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <style>
-  body {
-    margin: 0;
-    font-family: "Tahoma", sans-serif;
-    background: url('img/M1.jpg') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: #ffffff;
-  }
-  header {
-    background: rgba(0,0,102,0.8);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #ffff00;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 28px;
-    color: #ffff00;
-    text-shadow: 2px 2px #000000;
-  }
-  nav {
-    background: rgba(0,0,128,0.8);
-    border-bottom: 2px solid #ff9900;
-  }
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-  nav li { margin: 0 15px; }
-  nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    display: block;
-  }
-  nav a:hover {
-    background-color: #ff9900;
-    color: #000000;
-  }
-  .main-wrapper {
-    display: flex;
-    flex: 1;
-    margin: 30px auto;
-    width: 95%;
-    max-width: 1400px;
-    gap: 20px;
-    height: calc(100vh - 150px);
-  }
-  .banner-block {
-    flex: 1;
-    min-width: 120px;
-    background-color: rgba(255,255,255,0.8);
-    color: #000;
-    padding: 10px;
-    border: 2px solid #000033;
-    border-radius: 6px;
-    text-align: center;
-    height: 100%;
-  }
-  .banner-block h3 { margin-top: 0; }
-  .central-block {
-    flex: 2;
-    background-color: rgba(0,0,51,0.6);
-    padding: 20px;
-    border: 2px solid #ffff00;
-    box-shadow: 5px 5px 0 #ff9900;
-    border-radius: 10px;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  h2 { color: #ffff00; text-shadow: 1px 1px #000000; }
-  p { line-height: 1.6; }
-  .btn {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px 20px;
-    background: #ff9900;
-    color: #000033;
-    font-weight: bold;
-    text-decoration: none;
-    border: 2px solid #ffff00;
-    cursor: pointer;
-  }
-  .btn:hover { background: #ffff00; color: #000033; }
-  .chat-block {
-    flex: 1;
-    min-width: 150px;
-    background-color: rgba(255,255,255,0.9);
-    color: #000;
-    padding: 15px;
-    border: 2px solid #000033;
-    border-radius: 6px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .chat-block h3 { margin-top: 0; text-align: center; }
-  .chat-box { flex: 1; background-color: #f0f0f0; border: 1px solid #ccc; overflow-y: auto; margin-top: 10px; }
-  footer {
-    background: rgba(0,0,128,0.8);
-    color: #ffff00;
-    text-align: center;
-    padding: 15px;
-    border-top: 2px solid #ff9900;
-  }
+body {
+  margin: 0;
+  font-family: "Tahoma", sans-serif;
+  background: url('img/M1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+header {
+  background: rgba(0,0,102,0.8);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ffff00;
+}
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #ffff00;
+  text-shadow: 2px 2px #000000;
+}
+
+nav {
+  background: rgba(0,0,128,0.8);
+  border-bottom: 2px solid #ff9900;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+nav li { margin: 0 15px; }
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
+}
+nav a:hover {
+  background-color: #ff9900;
+  color: #000000;
+}
+
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  margin: 30px auto;
+  width: 95%;
+  max-width: 1400px;
+  gap: 20px;
+  height: calc(100vh - 150px);
+}
+
+.banner-block {
+  flex: 1;
+  min-width: 120px;
+  background-color: rgba(255,255,255,0.8);
+  color: #000;
+  padding: 10px;
+  border: 2px solid #000033;
+  border-radius: 6px;
+  text-align: center;
+  height: 100%;
+}
+.banner-block h3 { margin-top: 0; }
+
+.central-block {
+  flex: 2;
+  background-color: rgba(0,0,51,0.6);
+  padding: 20px;
+  border: 2px solid #ffff00;
+  box-shadow: 5px 5px 0 #ff9900;
+  border-radius: 10px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+h2 { color: #ffff00; text-shadow: 1px 1px #000000; }
+p { line-height: 1.6; }
+
+.btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background: #ff9900;
+  color: #000033;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #ffff00;
+  cursor: pointer;
+}
+.btn:hover { background: #ffff00; color: #000033; }
+
+.chat-block {
+  flex: 1;
+  min-width: 150px;
+  background-color: rgba(255,255,255,0.9);
+  color: #000;
+  padding: 15px;
+  border: 2px solid #000033;
+  border-radius: 6px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-block h3 { margin-top: 0; text-align: center; }
+.chat-box { flex: 1; background-color: #f0f0f0; border: 1px solid #ccc; overflow-y: auto; margin-top: 10px; padding: 5px; }
+
+footer {
+  background: rgba(0,0,128,0.8);
+  color: #ffff00;
+  text-align: center;
+  padding: 15px;
+  border-top: 2px solid #ff9900;
+}
+
+input[type="text"] {
+  width: calc(100% - 10px);
+  margin-top: 5px;
+  padding: 5px;
+}
 </style>
 </head>
 <body>
@@ -143,7 +164,6 @@
   </div>
 
   <div class="central-block" id="central-block">
-    <!-- Окно А -->
     <h2>Добро пожаловать!</h2>
     <p>Выберите раздел:</p>
     <button class="btn" id="praktiki-btn">Практики</button>
@@ -151,7 +171,10 @@
 
   <div class="chat-block">
     <h3>Чат</h3>
-    <div class="chat-box"></div>
+    <div class="chat-box" id="chat-box"></div>
+    <input type="text" id="nickname" placeholder="Ваш ник">
+    <input type="text" id="message" placeholder="Сообщение">
+    <button id="sendBtn" class="btn">Отправить</button>
   </div>
 </div>
 
@@ -159,26 +182,206 @@
   &copy; 2025 Институт ФЯФИ | Все права защищены
 </footer>
 
-<!-- Tawk.to Script -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/68b62e8616dec9192417694a/1j43qbg7h';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-
 <script>
-// Здесь оставляешь весь свой JS для кнопок PRA и PDF
+// ===== Firebase =====
+const firebaseConfig = {
+  apiKey: "AIzaSyBxNTmQR9HKfi1iz_piobs_MgnLIetmSnc",
+  authDomain: "fjfi1488.firebaseapp.com",
+  projectId: "fjfi1488",
+  storageBucket: "fjfi1488.firebasestorage.app",
+  messagingSenderId: "1045435283804",
+  appId: "1:1045435283804:web:1786c4cf0cae749aef2999",
+  measurementId: "G-08TCLPT7FL"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// ===== Чат =====
+const chatBox = document.getElementById('chat-box');
+const nicknameInput = document.getElementById('nickname');
+const messageInput = document.getElementById('message');
+const sendBtn = document.getElementById('sendBtn');
+
+sendBtn.onclick = () => {
+  const nick = nicknameInput.value.trim();
+  const msg = messageInput.value.trim();
+  if (!nick || !msg) return;
+
+  db.ref('chat').push({
+    nickname: nick,
+    message: msg,
+    timestamp: Date.now()
+  });
+
+  messageInput.value = '';
+};
+
+db.ref('chat').on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  const div = document.createElement('div');
+  div.textContent = `${data.nickname}: ${data.message}`;
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+});
+
+// ===== Твой код для протоколов =====
+const centralBlock = document.getElementById('central-block');
+// Группы и протоколы
+const groups = {
+  "PRA1": [
+    "2-Dynamika rotacniho pohybu",
+    "3-Mereni modulu pruznosti",
+    "4-Cavendishuv experiment",
+    "5-Mereni Poissonovy konstanty",
+    "7-Mereni povrchoveho napeti",
+    "8-Kondenzator",
+    "9-Rozsiseni rozsahu miliampermetru",
+    "10-Harmonicke oscilace",
+    "11-Rezonancni-obvody"
+  ],
+  "PRA2": [
+    "4-Balmerova serie",
+    "5-Mereni teploty wolframoveho vlakna",
+    "6-Geometricka optika",
+    "7-Mereni spektra gama zareni",
+    "8-Mikrovlny",
+    "9-Polarizace svetla",
+    "10-Interference a difrakce svetla",
+    "11-Mereni kvantovych vlastnosti atomu",
+    "12-Urceni Planckovy konstantyz",
+    "13-Vysokoteplotni plazma na tokamaku"
+  ],
+  "ZFM1": ["Neprime mereni"],
+  "ZFM2": ["Файл1", "Файл2"],
+  "SPRA": [
+    "1-Zeeman",
+    "2-Kvantove smazani",
+    "3-LIDAR",
+    "4-Heizenberg",
+    "5-Generování náhodných čísel"
+  ],
+  "Общие": ["Файл1", "Файл2"]
+};
+
+// Пути к PDF
+const pdfPaths = {
+  "2-Dynamika rotacniho pohybu": "Protokoly/PRA1/2/2-Dynamika-rotacniho-pohybu.pdf",
+  "3-Mereni modulu pruznosti": "Protokoly/PRA1/3/3-Mereni-modulu-pruznosti.pdf",
+  "4-Cavendishuv experiment": "Protokoly/PRA1/4/4-Cavendishuv-experiment.pdf",
+  "5-Mereni Poissonovy konstanty": "Protokoly/PRA1/5/5-Mereni-Poissonovy-konstanty.pdf",
+  "7-Mereni povrchoveho napeti": "Protokoly/PRA1/7/7-Mereni-povrchoveho-napeti.pdf",
+  "8-Kondenzator": "Protokoly/PRA1/8/8-Kondenzator.pdf",
+  "9-Rozsiseni rozsahu miliampermetru": "Protokoly/PRA1/9/9-Rozsiseni-rozsahu-miliampermetru.pdf",
+  "10-Harmonicke oscilace": "Protokoly/PRA1/10/10-Harmonicke-oscilace.pdf",
+  "11-Rezonancni obvody": "Protokoly/PRA1/11/11-Rezonancni-obvody.pdf",
+  "4-Balmerova serie": "Protokoly/PRA2/4/4-Balmerova-serie.pdf",
+  "5-Mereni teploty wolframoveho vlakna": "Protokoly/PRA2/5/5-Mereni-teploty-wolframoveho-vlakna.pdf",
+  "6-Geometricka optika": "Protokoly/PRA2/6/6-Geometricka-optika.pdf",
+  "7-Mereni spektra gama zareni": "Protokoly/PRA2/7/7-Mereni-spektra-gama-zareni.pdf",
+  "8-Mikrovlny": "Protokoly/PRA2/8/8-Mikrovlny.pdf",
+  "9-Polarizace svetla": "Protokoly/PRA2/9/9-Polarizace-svetla.pdf",
+  "10-Interference a difrakce svetla": "Protokoly/PRA2/10/10-Interference-a-difrakce-svetla.pdf",
+  "11-Mereni kvantovych vlastnosti atomu": "Protokoly/PRA2/11/11-Mereni-kvantovych-vlastnosti-atomu.pdf",
+  "12-Urceni Planckovy konstanty": "Protokoly/PRA2/12/12-Urceni-Planckovy-konstanty.pdf",
+  "13-Vysokoteplotni plazma na tokamaku": "Protokoly/PRA2/13/13-Vysokoteplotni-plazma-na-tokamaku.pdf",
+  "1-Zeeman": "Protokoly/SPRA/1/Zeeman.pdf",
+  "2-Kvantove smazani": "Protokoly/SPRA/2/Kvantove smazani.pdf",
+  "3-LIDAR": "Protokoly/SPRA/3/LIDAR.pdf",
+  "4-Heizenberg": "Protokoly/SPRA/4/Heizenberg.pdf",
+  "5-Generovani nahodnych cisel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf"
+};
+
+
+const windowA = `<h2>Добро пожаловать!</h2>
+<p>Выберите раздел:</p>
+<button class="btn" id="praktiki-btn">Практики</button>`;
+
+function showWindowB() {
+  centralBlock.innerHTML = `<h2>Практики</h2><p>Выберите группу:</p>`;
+  Object.keys(groups).forEach(group=>{
+    const btn=document.createElement('button');
+    btn.className='btn';
+    btn.textContent=group;
+    btn.onclick=()=>showGroupProtocols(group);
+    centralBlock.appendChild(btn);
+  });
+  const backBtn=document.createElement('button');
+  backBtn.className='btn';
+  backBtn.textContent='Назад';
+  backBtn.onclick=()=>centralBlock.innerHTML=windowA;
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
+
+function showGroupProtocols(group){
+  centralBlock.innerHTML=`<h2>${group}</h2><p>Выберите протокол:</p>`;
+  groups[group].forEach(file=>{
+    const btn=document.createElement('button');
+    btn.className='btn';
+    btn.textContent=file;
+    btn.onclick=()=>showPdfWindow(group,file);
+    centralBlock.appendChild(btn);
+  });
+  const backBtn=document.createElement('button');
+  backBtn.className='btn';
+  backBtn.textContent='Назад';
+  backBtn.style.marginTop='15px';
+  backBtn.onclick=()=>showWindowB();
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
+
+function showPdfWindow(group,file){
+  centralBlock.innerHTML=`<h2>${file}</h2>`;
+  const fileDiv=document.createElement('div');
+  fileDiv.style.display='flex';
+  fileDiv.style.justifyContent='space-between';
+  fileDiv.style.alignItems='center';
+  fileDiv.style.margin='10px 0';
+  fileDiv.style.backgroundColor='#cce0ff';
+  fileDiv.style.padding='8px';
+  fileDiv.style.borderRadius='5px';
+  fileDiv.style.color='#003366';
+  fileDiv.style.fontWeight='bold';
+
+  const link=document.createElement('a');
+  link.href=pdfPaths[file];
+  link.textContent=file+'.pdf';
+  link.style.color='#003366';
+  link.style.textDecoration='none';
+  link.target='_blank';
+  fileDiv.appendChild(link);
+
+  const downloadBtn=document.createElement('a');
+  downloadBtn.href=pdfPaths[file];
+  downloadBtn.download=file+'.pdf';
+  downloadBtn.textContent='⬇';
+  downloadBtn.style.marginLeft='10px';
+  downloadBtn.style.color='#003366';
+  downloadBtn.style.textDecoration='none';
+  downloadBtn.style.fontSize='20px';
+  fileDiv.appendChild(downloadBtn);
+
+  centralBlock.appendChild(fileDiv);
+
+  const backBtn=document.createElement('button');
+  backBtn.className='btn';
+  backBtn.textContent='Назад';
+  backBtn.style.marginTop='15px';
+  backBtn.onclick=()=>showGroupProtocols(group);
+  centralBlock.appendChild(backBtn);
+}
+
+centralBlock.addEventListener('click', (e)=>{
+  if(e.target && e.target.id==='praktiki-btn'){
+    showWindowB();
+  }
+});
 </script>
 
 </body>
 </html>
-
 
 
 
