@@ -246,9 +246,9 @@ input[type="text"] {
   </div>
 </div>
 
-<footer style="position: relative; height: 60px;">
-  <!-- Рекламный баннер по центру -->
-  <div style="width: 468px; height: 60px; margin: 0 auto; overflow: hidden;">
+<footer style="display: flex; justify-content: space-between; align-items: center; padding: 5px; background: rgba(0,0,128,0.8); border-top: 2px solid #ff9900;">
+  <!-- Баннер слева -->
+  <div style="width: 468px; height: 60px; overflow: hidden;">
     <script type="text/javascript">
       atOptions = {
         'key' : '69fbd741524f6eb0e5386b6386fd4cf7',
@@ -261,11 +261,43 @@ input[type="text"] {
     <script type="text/javascript" src="//www.highperformanceformat.com/69fbd741524f6eb0e5386b6386fd4cf7/invoke.js"></script>
   </div>
 
-  <!-- Кнопка GOIDA справа -->
-  <button id="goida-btn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-weight: bold; cursor: pointer;">
-    ГОЙДА
-  </button>
+  <!-- Контейнер справа: счетчик + кнопка -->
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <div id="goida-counter" style="color:#ffff00; font-weight:bold; font-size:16px;">
+      ГОЙДА: 0
+    </div>
+    <button id="goida-btn" style="background:#ff9900; color:#000033; font-weight:bold; border:2px solid #ffff00; padding:10px 20px; cursor:pointer; border-radius:5px;">
+      ГОЙДА
+    </button>
+  </div>
+
+  <!-- Скрытый аудио элемент для звука -->
+  <audio id="goida-sound" src="https://www.myinstants.com/media/sounds/goida.mp3"></audio>
 </footer>
+
+<script>
+  const goidaBtn = document.getElementById('goida-btn');
+  const goidaSound = document.getElementById('goida-sound');
+  const goidaCounter = document.getElementById('goida-counter');
+
+  // Получаем текущее значение из localStorage, если есть
+  let count = parseInt(localStorage.getItem('goida-count')) || 0;
+  goidaCounter.textContent = `ГОЙДА: ${count}`;
+
+  goidaBtn.addEventListener('click', () => {
+    // Воспроизведение звука
+    goidaSound.currentTime = 0;
+    goidaSound.play();
+
+    // Увеличиваем счетчик
+    count++;
+    goidaCounter.textContent = `ГОЙДА: ${count}`;
+
+    // Сохраняем в localStorage
+    localStorage.setItem('goida-count', count);
+  });
+</script>
+
 
 <script>
   const goidaBtn = document.getElementById('goida-btn');
