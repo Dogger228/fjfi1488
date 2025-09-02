@@ -68,17 +68,16 @@ nav a:hover {
 }
 
 .banner-block {
-  flex: 1;
-  min-width: 120px;
+  flex: none;
+  width: 160px;      /* ширина баннера */
+  height: 300px;      /* высота баннера */
   background-color: rgba(255,255,255,0.8);
   color: #000;
   padding: 10px;
   border: 2px solid #000033;
   border-radius: 6px;
   text-align: center;
-  height: 100%;
 }
-.banner-block h3 { margin-top: 0; }
 
 .central-block {
   flex: 2;
@@ -159,9 +158,19 @@ input[type="text"] {
 
 <div class="main-wrapper">
   <div class="banner-block">
-    <h3>Реклама</h3>
-    <p>Ваш баннер здесь</p>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '855b3f4789dba0b08c4133c10cad20ba',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/855b3f4789dba0b08c4133c10cad20ba/invoke.js"></script>
   </div>
+
+
 
   <div class="central-block" id="central-block">
     <h2>Добро пожаловать!</h2>
@@ -402,9 +411,3 @@ centralBlock.addEventListener('click', (e)=>{
 
 </body>
 </html>
-
-
-
-
-
-
