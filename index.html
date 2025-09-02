@@ -169,11 +169,11 @@ p { line-height: 1.6; }
 .chat-block {
   flex: 1;
   min-width: 150px;
-  background-color: rgba(255,255,255,0.9);
+  background-color: #ffffff; /* можно оставить или выбрать другой */
   color: #000;
   padding: 15px;
-  border: 2px solid #000033;
-  border-radius: 6px;
+  border: 3px solid #000000; /* вот здесь жесткая рамка для всего блока */
+  border-radius: 0;           /* прямые углы */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -233,13 +233,12 @@ input[type="text"] {
 
 <div class="central-block" id="central-block">
   <h2>Добро пожаловать!</h2>
-  <p>Выберите раздел:</p>
+  <button class="btn" id="schedule-btn">Расписания пар</button>
   <button class="btn" id="praktiki-btn">Практики</button>
-  <a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2024_2025_final.pdf" target="_blank">
 <a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2024_2025_final.pdf" target="_blank" class="btn">
   Белая кНИГА
 </a>
-  <button class="btn" id="veterany-btn">Первакам</button>
+  <button class="btn" id="pervakam-btn">Первакам</button>
   <button class="btn" id="veterany-btn">Ветераны</button>
 </div>
 
@@ -405,12 +404,12 @@ const pdfPaths = {
 
 
 const windowA = `<h2>Добро пожаловать!</h2>
-<p>Выберите раздел:</p>
+<button class="btn" id="schedule-btn">Расписания пар</button>
 <button class="btn" id="praktiki-btn">Практики</button>
 <a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2024_2025_final.pdf" target="_blank" class="btn">
   Белая кНИГА
 </a>
-<button class="btn" id="praktiki-btn">Первакам</button>
+<button class="btn" id="pervakam-btn">Первакам</button>
 <button class="btn" id="veterany-btn">Ветераны</button>`;
 // Функция для показа картинки ветеранов
 function showVeterans() {
@@ -514,7 +513,6 @@ function showPdfWindow(group,file){
 
     centralBlock.appendChild(fileDiv);
   }
-
   // Кнопка "Назад"
   const backBtn=document.createElement('button');
   backBtn.className='btn';
@@ -525,15 +523,47 @@ function showPdfWindow(group,file){
   centralBlock.appendChild(backBtn);
 }
 
+function showScheduleWindow() {
+  centralBlock.innerHTML = `<h2>Расписания пар</h2>`;
+
+  const schedules = [
+    {text: 'Бакалавр 1', link: 'https://rozvrh.fjfi.cvut.cz/tt_parts/BS1'},
+    {text: 'Бакалавр 2', link: 'https://rozvrh.fjfi.cvut.cz/tt_parts/BS2'},
+    {text: 'Бакалавр 3', link: 'https://rozvrh.fjfi.cvut.cz/tt_parts/BS3'},
+    {text: 'Магистр 1', link: 'https://rozvrh.fjfi.cvut.cz/tt_parts/NMS1'},
+    {text: 'Магистр 2', link: 'https://rozvrh.fjfi.cvut.cz/tt_parts/NMS2'}
+  ];
+
+  schedules.forEach(s=>{
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = s.text;
+    btn.onclick = () => window.open(s.link, '_blank'); // открытие в новой вкладке
+    centralBlock.appendChild(btn);
+  });
+
+  const backBtn=document.createElement('button');
+  backBtn.className='btn';
+  backBtn.textContent='Назад';
+  backBtn.style.marginTop='15px';
+  backBtn.onclick = () => centralBlock.innerHTML = windowA;
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
+
 // Обработчик кликов в центральном блоке
 centralBlock.addEventListener('click', (e) => {
   if (e.target && e.target.id === 'praktiki-btn') {
     showWindowB();
-  }
-  if (e.target && e.target.id === 'veterany-btn') {
+  } else if (e.target && e.target.id === 'schedule-btn') {
+    showScheduleWindow();
+  } else if (e.target && e.target.id === 'veterany-btn') {
     showVeterans();
+  } else if (e.target && e.target.id === 'pervakam-btn') {
+    // твой код для Первакам
   }
 });
+
 
 </script>
 
