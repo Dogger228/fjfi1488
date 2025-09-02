@@ -275,38 +275,8 @@ input[type="text"] {
   <audio id="goida-sound" src="https://www.myinstants.com/media/sounds/goida.mp3"></audio>
 </footer>
 
-<script>
-  const goidaBtn = document.getElementById('goida-btn');
-  const goidaSound = document.getElementById('goida-sound');
-  const goidaCounter = document.getElementById('goida-counter');
-
-  // Получаем текущее значение из localStorage, если есть
-  let count = parseInt(localStorage.getItem('goida-count')) || 0;
-  goidaCounter.textContent = `ГОЙДА: ${count}`;
-
-  goidaBtn.addEventListener('click', () => {
-    // Воспроизведение звука
-    goidaSound.currentTime = 0;
-    goidaSound.play();
-
-    // Увеличиваем счетчик
-    count++;
-    goidaCounter.textContent = `ГОЙДА: ${count}`;
-
-    // Сохраняем в localStorage
-    localStorage.setItem('goida-count', count);
-  });
-</script>
 
 
-<script>
-  const goidaBtn = document.getElementById('goida-btn');
-  const goidaAudio = new Audio('https://www.myinstants.com/media/sounds/goida-31464.mp3'); // прямой mp3
-  goidaBtn.addEventListener('click', () => {
-    goidaAudio.currentTime = 0;
-    goidaAudio.play();
-  });
-</script>
 
 <script>
 
@@ -324,6 +294,34 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+
+// Ссылки на элементы
+const goidaBtn = document.getElementById('goida-btn');
+const goidaSound = document.getElementById('goida-sound');
+const goidaCounter = document.getElementById('goida-counter');
+
+// Ссылка на счетчик в Firebase
+const goidaRef = db.ref('goida-counter');
+
+// Подписка на изменения счетчика
+goidaRef.on('value', (snapshot) => {
+  const val = snapshot.val();
+  goidaCounter.textContent = `ГОЙДА: ${val || 0}`;
+});
+
+// Обработчик клика
+goidaBtn.addEventListener('click', async () => {
+  // Воспроизведение звука
+  goidaSound.currentTime = 0;
+  goidaSound.play();
+
+  // Используем транзакцию, чтобы безопасно увеличить счетчик
+  goidaRef.transaction(current => {
+    return (current || 0) + 1;
+  });
+});
+
+
 
 // ===== Чат =====
 const chatBox = document.getElementById('chat-box');
