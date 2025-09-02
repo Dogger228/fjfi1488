@@ -217,6 +217,31 @@ sendBtn.onclick = () => {
   messageInput.value = '';
 };
 
+// Слушаем новые сообщения в чате
+db.ref('chat').on('child_added', (snapshot) => {
+  const data = snapshot.val();
+  
+  // Форматируем время
+  const time = new Date(data.timestamp);
+  const hours = time.getHours().toString().padStart(2, '0');
+  const minutes = time.getMinutes().toString().padStart(2, '0');
+  
+  const div = document.createElement('div');
+  div.textContent = `[${hours}:${minutes}] ${data.nickname}: ${data.message}`;
+  chatBox.appendChild(div);
+  
+  // Прокрутка вниз
+  chatBox.scrollTop = chatBox.scrollHeight;
+});
+
+// Отправка сообщения по Enter
+messageInput.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter') sendBtn.click();
+});
+nicknameInput.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter') messageInput.focus();
+});
+
 db.ref('chat').on('child_added', (snapshot) => {
   const data = snapshot.val();
   const div = document.createElement('div');
