@@ -7,7 +7,7 @@
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
+<audio id="apin-sound" src="audio/apin.mp3"></audio>
 <style>
 header {
   width: 100%;
@@ -241,6 +241,7 @@ input[type="text"] {
   <h2>Добро пожаловать!</h2>
   <button class="btn" id="schedule-btn">Расписания пар</button>
   <button class="btn" id="praktiki-btn">Практики</button>
+  <button class="btn" id="apin-btn">APIN</button>
   <button class="btn" id="pervakam-btn">Первакам</button>
   <button class="btn" id="veterany-btn">Ветераны</button>
 </div>
@@ -462,6 +463,7 @@ const pdfPaths = {
 const windowA = `<h2>Добро пожаловать!</h2>
 <button class="btn" id="schedule-btn">Расписания пар</button>
 <button class="btn" id="praktiki-btn">Практики</button>
+<button class="btn" id="apin-btn">APIN</button>
 <button class="btn" id="pervakam-btn">Первакам</button>
 <button class="btn" id="veterany-btn">Ветераны</button>`;
 // Функция для показа картинки ветеранов
@@ -483,6 +485,17 @@ function showVeterans() {
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
+
+const apinBtn = document.getElementById('apin-btn');
+const apinSound = document.getElementById('apin-sound');
+
+apinBtn.addEventListener('click', () => {
+  if (!apinSound.paused) return;  // если звук уже играет, ничего не делаем
+  apinSound.currentTime = 0;
+  apinSound.play();
+});
+
+
 
 function showWindowB() {
   centralBlock.innerHTML = `<h2>Практики</h2>`;
