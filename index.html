@@ -204,6 +204,7 @@ const nicknameInput = document.getElementById('nickname');
 const messageInput = document.getElementById('message');
 const sendBtn = document.getElementById('sendBtn');
 
+// Отправка сообщения
 sendBtn.onclick = () => {
   const nick = nicknameInput.value.trim();
   const msg = messageInput.value.trim();
@@ -216,21 +217,22 @@ sendBtn.onclick = () => {
   });
 
   messageInput.value = '';
+  messageInput.focus();
 };
 
-// Слушаем новые сообщения в чате
+// Слушаем новые сообщения
 db.ref('chat').on('child_added', (snapshot) => {
   const data = snapshot.val();
-  
-  // Форматируем время
+
+  // Форматирование времени
   const time = new Date(data.timestamp);
   const hours = time.getHours().toString().padStart(2, '0');
   const minutes = time.getMinutes().toString().padStart(2, '0');
-  
+
   const div = document.createElement('div');
   div.textContent = `[${hours}:${minutes}] ${data.nickname}: ${data.message}`;
   chatBox.appendChild(div);
-  
+
   // Прокрутка вниз
   chatBox.scrollTop = chatBox.scrollHeight;
 });
@@ -241,14 +243,6 @@ messageInput.addEventListener('keypress', (e) => {
 });
 nicknameInput.addEventListener('keypress', (e) => {
   if(e.key === 'Enter') messageInput.focus();
-});
-
-db.ref('chat').on('child_added', (snapshot) => {
-  const data = snapshot.val();
-  const div = document.createElement('div');
-  div.textContent = `${data.nickname}: ${data.message}`;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
 });
 
 // ===== Твой код для протоколов =====
