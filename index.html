@@ -143,7 +143,10 @@ input[type="text"] {
 <body>
 
 <header>
-  <h1>Институт ФЯФИ</h1>
+  <div class="marquee">
+    <div class="marquee-content">🏫 Институт ФЯФИ 🏫</div>
+    <div class="marquee-content">🏫 Институт ФЯФИ 🏫</div>
+  </div>
 </header>
 
 <nav>
@@ -204,6 +207,37 @@ input[type="text"] {
 </footer>
 
 <script>
+header {
+  width: 100%;
+  background-color: rgba(0,0,102,0.8);
+  border-bottom: 2px solid #ff9900;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.marquee {
+  display: flex;
+  width: max-content; /* Ширина по контенту */
+  animation: scroll 10s linear infinite;
+}
+
+.marquee span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffff00;
+  text-shadow: 2px 2px #000000;
+  margin-right: 50px; /* промежуток между повторами */
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 // ===== Firebase =====
 const firebaseConfig = {
   apiKey: "AIzaSyBxNTmQR9HKfi1iz_piobs_MgnLIetmSnc",
