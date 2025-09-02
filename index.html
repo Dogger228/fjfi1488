@@ -311,14 +311,23 @@ goidaRef.on('value', (snapshot) => {
 
 // Обработчик клика
 goidaBtn.addEventListener('click', async () => {
+  // Проверяем, играет ли уже звук
+  if (!goidaSound.paused) return; // если играет — ничего не делаем
+
   // Воспроизведение звука
   goidaSound.currentTime = 0;
   goidaSound.play();
 
-  // Используем транзакцию, чтобы безопасно увеличить счетчик
-  goidaRef.transaction(current => {
-    return (current || 0) + 1;
-  });
+  // Увеличение счетчика
+  goidaRef.transaction(current => (current || 0) + 1);
+
+  // Блокируем кнопку на время воспроизведения
+  goidaBtn.disabled = true;
+
+  // Включаем кнопку обратно после окончания аудио
+  goidaSound.onended = () => {
+    goidaBtn.disabled = false;
+  };
 });
 
 
