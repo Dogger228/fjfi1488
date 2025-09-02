@@ -9,6 +9,52 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <style>
+header {
+  width: 100%;
+  background-color: rgba(0,0,102,0.8);
+  border-bottom: 2px solid #ff9900;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(0,0,51,0.7); /* полупрозрачный фон для выделения текста */
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 150px; /* расстояние между повторами */
+  font-size: 36px; /* размер текста */
+  font-weight: 900;
+  font-family: 'Arial Black', sans-serif; /* жирный читаемый шрифт */
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px #000000, 0 0 10px #ff9900;
+  animation: scroll 15s linear infinite, color-change 5s linear infinite;
+}
+
+/* Анимация движения текста */
+@keyframes scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Плавная смена цвета */
+@keyframes color-change {
+  0%   { color: #e74c3c; }
+  25%  { color: #f1c40f; }
+  50%  { color: #2ecc71; }
+  75%  { color: #3498db; }
+  100% { color: #e74c3c; }
+}
+
+
+
+
 body {
   margin: 0;
   font-family: "Tahoma", sans-serif;
@@ -19,7 +65,18 @@ body {
   min-height: 100vh;
   color: #ffffff;
 }
+#bear-fixed {
+  position: fixed;
+  bottom: 0px;  /* отступ снизу */
+  left: 0px;   /* отступ справа */
+  z-index: 9999; /* поверх всего */
+}
 
+#bear-fixed img {
+  width: 200px;  /* размер гифки */
+  height: auto;
+  pointer-events: none; /* чтобы не мешал кликам */
+}
 header {
   background: rgba(0,0,102,0.8);
   padding: 20px;
@@ -144,8 +201,7 @@ input[type="text"] {
 
 <header>
   <div class="marquee">
-    <div class="marquee-content">🏫 Институт ФЯФИ 🏫</div>
-    <div class="marquee-content">🏫 Институт ФЯФИ 🏫</div>
+    <div class="marquee-content">🏫 VÍTÁME VÁS NA FAKULTĚ JADERNÉ A FYZIKÁLNĚ INŽENÝRSKÉ V PRAZE 🏫</div>
   </div>
 </header>
 
@@ -207,37 +263,7 @@ input[type="text"] {
 </footer>
 
 <script>
-header {
-  width: 100%;
-  background-color: rgba(0,0,102,0.8);
-  border-bottom: 2px solid #ff9900;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.marquee {
-  display: flex;
-  width: max-content; /* Ширина по контенту */
-  animation: scroll 10s linear infinite;
-}
 
-.marquee span {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffff00;
-  text-shadow: 2px 2px #000000;
-  margin-right: 50px; /* промежуток между повторами */
-  animation: blink 1s step-start infinite;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
 // ===== Firebase =====
 const firebaseConfig = {
   apiKey: "AIzaSyBxNTmQR9HKfi1iz_piobs_MgnLIetmSnc",
@@ -364,7 +390,11 @@ const pdfPaths = {
   "2-Kvantove smazani": "Protokoly/SPRA/2/Kvantove smazani.pdf",
   "3-LIDAR": "Protokoly/SPRA/3/LIDAR.pdf",
   "4-Heizenberg": "Protokoly/SPRA/4/Heizenberg.pdf",
-  "5-Generovani nahodnych cisel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf"
+  "5-Generovani nahodnych cisel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf",
+  "Файл1": "img/fw.jpg",
+  "Файл2": "img/fw.jpg",
+  "Neprime mereni": "img/fw.jpg",
+  "Абитуриентам": "img/fw.jpg",
 };
 
 
@@ -409,42 +439,59 @@ function showGroupProtocols(group){
 
 function showPdfWindow(group,file){
   centralBlock.innerHTML=`<h2>${file}</h2>`;
-  const fileDiv=document.createElement('div');
-  fileDiv.style.display='flex';
-  fileDiv.style.justifyContent='space-between';
-  fileDiv.style.alignItems='center';
-  fileDiv.style.margin='10px 0';
-  fileDiv.style.backgroundColor='#cce0ff';
-  fileDiv.style.padding='8px';
-  fileDiv.style.borderRadius='5px';
-  fileDiv.style.color='#003366';
-  fileDiv.style.fontWeight='bold';
 
-  const link=document.createElement('a');
-  link.href=pdfPaths[file];
-  link.textContent=file+'.pdf';
-  link.style.color='#003366';
-  link.style.textDecoration='none';
-  link.target='_blank';
-  fileDiv.appendChild(link);
+  const path = pdfPaths[file];
 
-  const downloadBtn=document.createElement('a');
-  downloadBtn.href=pdfPaths[file];
-  downloadBtn.download=file+'.pdf';
-  downloadBtn.textContent='⬇';
-  downloadBtn.style.marginLeft='10px';
-  downloadBtn.style.color='#003366';
-  downloadBtn.style.textDecoration='none';
-  downloadBtn.style.fontSize='20px';
-  fileDiv.appendChild(downloadBtn);
+  if(path && (path.endsWith('.jpg') || path.endsWith('.png') || path.endsWith('.jpeg') || path.endsWith('.gif'))) {
+    // ----- картинка -----
+    const img = document.createElement('img');
+    img.src = path;
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '70vh';
+    img.style.border = '3px solid #333';
+    img.style.borderRadius = '10px';
+    centralBlock.appendChild(img);
+  } else {
+    // ----- PDF -----
+    const fileDiv=document.createElement('div');
+    fileDiv.style.display='flex';
+    fileDiv.style.justifyContent='space-between';
+    fileDiv.style.alignItems='center';
+    fileDiv.style.margin='10px 0';
+    fileDiv.style.backgroundColor='#cce0ff';
+    fileDiv.style.padding='8px';
+    fileDiv.style.borderRadius='5px';
+    fileDiv.style.color='#003366';
+    fileDiv.style.fontWeight='bold';
 
-  centralBlock.appendChild(fileDiv);
+    const link=document.createElement('a');
+    link.href=path;
+    link.textContent=file+'.pdf';
+    link.style.color='#003366';
+    link.style.textDecoration='none';
+    link.target='_blank';
+    fileDiv.appendChild(link);
 
+    const downloadBtn=document.createElement('a');
+    downloadBtn.href=path;
+    downloadBtn.download=file+'.pdf';
+    downloadBtn.textContent='⬇';
+    downloadBtn.style.marginLeft='10px';
+    downloadBtn.style.color='#003366';
+    downloadBtn.style.textDecoration='none';
+    downloadBtn.style.fontSize='20px';
+    fileDiv.appendChild(downloadBtn);
+
+    centralBlock.appendChild(fileDiv);
+  }
+
+  // Кнопка "Назад"
   const backBtn=document.createElement('button');
   backBtn.className='btn';
   backBtn.textContent='Назад';
   backBtn.style.marginTop='15px';
   backBtn.onclick=()=>showGroupProtocols(group);
+  centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
 
@@ -453,7 +500,12 @@ centralBlock.addEventListener('click', (e)=>{
     showWindowB();
   }
 });
+
 </script>
+
+<div id="bear-fixed">
+  <img src="gif/C.gif" alt="Dancing bear">
+</div>
 
 </body>
 </html>
