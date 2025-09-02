@@ -354,7 +354,7 @@ const groups = {
     "13-Vysokoteplotni plazma na tokamaku"
   ],
   "ZFM1": ["Neprime mereni"],
-  "ZFM2": ["Файл1", "Файл2"],
+  "ZFM2": ["Файл2"],
   "SPRA": [
     "1-Zeeman",
     "2-Kvantove smazani",
@@ -362,7 +362,7 @@ const groups = {
     "4-Heizenberg",
     "5-Generování náhodných čísel"
   ],
-  "Общие": ["Файл1", "Файл2"]
+  "Общие": ["Navod", "Файл2"]
 };
 
 // Пути к PDF
@@ -387,13 +387,13 @@ const pdfPaths = {
   "12-Urceni Planckovy konstanty": "Protokoly/PRA2/12/12-Urceni-Planckovy-konstanty.pdf",
   "13-Vysokoteplotni plazma na tokamaku": "Protokoly/PRA2/13/13-Vysokoteplotni-plazma-na-tokamaku.pdf",
   "1-Zeeman": "Protokoly/SPRA/1/Zeeman.pdf",
-  "2-Kvantove smazani": "Protokoly/SPRA/2/Kvantove smazani.pdf",
+  "2-Kvantove smazani": "Protokoly/SPRA/2/Kvantove_smazani.pdf",
   "3-LIDAR": "Protokoly/SPRA/3/LIDAR.pdf",
   "4-Heizenberg": "Protokoly/SPRA/4/Heizenberg.pdf",
-  "5-Generovani nahodnych cisel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf",
-  "Файл1": "img/fw.jpg",
+  "5-Generování náhodných čísel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf",
+  "Navod": "Protokoly/Common/Navod(TabulkyObrazky).pdf",
   "Файл2": "img/fw.jpg",
-  "Neprime mereni": "img/fw.jpg",
+  "Neprime mereni": "Protokoly/ZFM1/Neprime-mereni.pdf",
   "Первакам": "img/fw.jpg",
 };
 
@@ -424,7 +424,7 @@ function showVeterans() {
 }
 
 function showWindowB() {
-  centralBlock.innerHTML = `<h2>Практики</h2><p>Выберите группу:</p>`;
+  centralBlock.innerHTML = `<h2>Практики</h2>`;
   Object.keys(groups).forEach(group=>{
     const btn=document.createElement('button');
     btn.className='btn';
