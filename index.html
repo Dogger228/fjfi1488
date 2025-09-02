@@ -231,11 +231,12 @@ input[type="text"] {
 
 
 
-  <div class="central-block" id="central-block">
-    <h2>Добро пожаловать!</h2>
-    <p>Выберите раздел:</p>
-    <button class="btn" id="praktiki-btn">Практики</button>
-  </div>
+<div class="central-block" id="central-block">
+  <h2>Добро пожаловать!</h2>
+  <p>Выберите раздел:</p>
+  <button class="btn" id="praktiki-btn">Практики</button>
+  <button class="btn" id="veterany-btn">Ветераны</button>
+</div>
 
   <div class="chat-block">
     <h3>Чат</h3>
@@ -400,7 +401,27 @@ const pdfPaths = {
 
 const windowA = `<h2>Добро пожаловать!</h2>
 <p>Выберите раздел:</p>
-<button class="btn" id="praktiki-btn">Практики</button>`;
+<button class="btn" id="praktiki-btn">Практики</button>
+<button class="btn" id="veterany-btn">Ветераны</button>`;
+// Функция для показа картинки ветеранов
+function showVeterans() {
+  centralBlock.innerHTML = `<h2>Ветераны</h2>`;
+  const img = document.createElement('img');
+  img.src = 'img/90.png'; // путь к картинке
+  img.style.maxWidth = '90%';
+  img.style.height = 'auto';
+  img.style.border = '3px solid #333';
+  img.style.borderRadius = '10px';
+  centralBlock.appendChild(img);
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn';
+  backBtn.textContent = 'Назад';
+  backBtn.style.marginTop = '15px';
+  backBtn.onclick = () => centralBlock.innerHTML = windowA;
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
 
 function showWindowB() {
   centralBlock.innerHTML = `<h2>Практики</h2><p>Выберите группу:</p>`;
@@ -495,9 +516,13 @@ function showPdfWindow(group,file){
   centralBlock.appendChild(backBtn);
 }
 
-centralBlock.addEventListener('click', (e)=>{
-  if(e.target && e.target.id==='praktiki-btn'){
+// Обработчик кликов в центральном блоке
+centralBlock.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'praktiki-btn') {
     showWindowB();
+  }
+  if (e.target && e.target.id === 'veterany-btn') {
+    showVeterans();
   }
 });
 
