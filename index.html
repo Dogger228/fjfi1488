@@ -73,7 +73,7 @@ body {
 }
 
 #bear-fixed img {
-  width: 200px;  /* размер гифки */
+  width: 250px;  /* размер гифки */
   height: auto;
   pointer-events: none; /* чтобы не мешал кликам */
 }
@@ -394,7 +394,7 @@ const pdfPaths = {
   "Файл1": "img/fw.jpg",
   "Файл2": "img/fw.jpg",
   "Neprime mereni": "img/fw.jpg",
-  "Абитуриентам": "img/fw.jpg",
+  "Первакам": "img/fw.jpg",
 };
 
 
@@ -457,13 +457,12 @@ function showGroupProtocols(group){
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
-
-function showPdfWindow(group,file){
-  centralBlock.innerHTML=`<h2>${file}</h2>`;
+function showPdfWindow(group, file, returnToMain = false) {
+  centralBlock.innerHTML = `<h2>${file}</h2>`;
 
   const path = pdfPaths[file];
 
-  if(path && (path.endsWith('.jpg') || path.endsWith('.png') || path.endsWith('.jpeg') || path.endsWith('.gif'))) {
+  if (path && (path.endsWith('.jpg') || path.endsWith('.png') || path.endsWith('.jpeg') || path.endsWith('.gif'))) {
     // ----- картинка -----
     const img = document.createElement('img');
     img.src = path;
@@ -474,43 +473,50 @@ function showPdfWindow(group,file){
     centralBlock.appendChild(img);
   } else {
     // ----- PDF -----
-    const fileDiv=document.createElement('div');
-    fileDiv.style.display='flex';
-    fileDiv.style.justifyContent='space-between';
-    fileDiv.style.alignItems='center';
-    fileDiv.style.margin='10px 0';
-    fileDiv.style.backgroundColor='#cce0ff';
-    fileDiv.style.padding='8px';
-    fileDiv.style.borderRadius='5px';
-    fileDiv.style.color='#003366';
-    fileDiv.style.fontWeight='bold';
+    const fileDiv = document.createElement('div');
+    fileDiv.style.display = 'flex';
+    fileDiv.style.justifyContent = 'space-between';
+    fileDiv.style.alignItems = 'center';
+    fileDiv.style.margin = '10px 0';
+    fileDiv.style.backgroundColor = '#cce0ff';
+    fileDiv.style.padding = '8px';
+    fileDiv.style.borderRadius = '5px';
+    fileDiv.style.color = '#003366';
+    fileDiv.style.fontWeight = 'bold';
 
-    const link=document.createElement('a');
-    link.href=path;
-    link.textContent=file+'.pdf';
-    link.style.color='#003366';
-    link.style.textDecoration='none';
-    link.target='_blank';
+    const link = document.createElement('a');
+    link.href = path;
+    link.textContent = file + '.pdf';
+    link.style.color = '#003366';
+    link.style.textDecoration = 'none';
+    link.target = '_blank';
     fileDiv.appendChild(link);
 
-    const downloadBtn=document.createElement('a');
-    downloadBtn.href=path;
-    downloadBtn.download=file+'.pdf';
-    downloadBtn.textContent='⬇';
-    downloadBtn.style.marginLeft='10px';
-    downloadBtn.style.color='#003366';
-    downloadBtn.style.textDecoration='none';
-    downloadBtn.style.fontSize='20px';
+    const downloadBtn = document.createElement('a');
+    downloadBtn.href = path;
+    downloadBtn.download = file + '.pdf';
+    downloadBtn.textContent = '⬇';
+    downloadBtn.style.marginLeft = '10px';
+    downloadBtn.style.color = '#003366';
+    downloadBtn.style.textDecoration = 'none';
+    downloadBtn.style.fontSize = '20px';
     fileDiv.appendChild(downloadBtn);
 
     centralBlock.appendChild(fileDiv);
   }
-  // Кнопка "Назад"
-  const backBtn=document.createElement('button');
-  backBtn.className='btn';
-  backBtn.textContent='Назад';
-  backBtn.style.marginTop='15px';
-  backBtn.onclick=()=>showGroupProtocols(group);
+
+  // ----- кнопка Назад -----
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn';
+  backBtn.textContent = 'Назад';
+  backBtn.style.marginTop = '15px';
+  backBtn.onclick = () => {
+    if (returnToMain) {
+      centralBlock.innerHTML = windowA; // вернуться на главный экран
+    } else {
+      showGroupProtocols(group); // вернуться к списку группы
+    }
+  };
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
@@ -552,7 +558,7 @@ centralBlock.addEventListener('click', (e) => {
   } else if (e.target && e.target.id === 'veterany-btn') {
     showVeterans();
   } else if (e.target && e.target.id === 'pervakam-btn') {
-    // твой код для Первакам
+  showPdfWindow('', 'Файл2', true);
   }
 });
 
