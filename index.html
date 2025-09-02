@@ -180,7 +180,15 @@ p { line-height: 1.6; }
 }
 
 .chat-block h3 { margin-top: 0; text-align: center; }
-.chat-box { flex: 1; background-color: #f0f0f0; border: 1px solid #ccc; overflow-y: auto; margin-top: 10px; padding: 5px; }
+.chat-box {
+  flex: 1;                 /* уже есть */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  overflow-y: auto;         /* вертикальная прокрутка */
+  margin-top: 10px;
+  padding: 5px;
+  max-height: 200px;        /* ограничиваем высоту */
+}
 
 footer {
   background: rgba(0,0,128,0.8);
