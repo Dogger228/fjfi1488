@@ -246,9 +246,9 @@ input[type="text"] {
   </div>
 </div>
 
-<footer>
-  <!-- Рекламный баннер 468x60 -->
-  <div style="width: 468px; height: 60px; margin: 0px auto; overflow: hidden;">
+<footer style="position: relative; height: 60px;">
+  <!-- Рекламный баннер по центру -->
+  <div style="width: 468px; height: 60px; margin: 0 auto; overflow: hidden;">
     <script type="text/javascript">
       atOptions = {
         'key' : '69fbd741524f6eb0e5386b6386fd4cf7',
@@ -260,7 +260,21 @@ input[type="text"] {
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/69fbd741524f6eb0e5386b6386fd4cf7/invoke.js"></script>
   </div>
+
+  <!-- Кнопка GOIDA справа -->
+  <button id="goida-btn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-weight: bold; cursor: pointer;">
+    ГОЙДА
+  </button>
 </footer>
+
+<script>
+  const goidaBtn = document.getElementById('goida-btn');
+  const goidaAudio = new Audio('https://www.myinstants.com/media/sounds/goida-31464.mp3'); // прямой mp3
+  goidaBtn.addEventListener('click', () => {
+    goidaAudio.currentTime = 0;
+    goidaAudio.play();
+  });
+</script>
 
 <script>
 
