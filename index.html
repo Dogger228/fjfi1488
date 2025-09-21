@@ -7,7 +7,6 @@
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-<audio id="apin-sound" src="audio/apin.mp3"></audio>
 <style>
 header {
   width: 100%;
@@ -215,10 +214,10 @@ input[type="text"] {
 
 <nav>
   <ul>
-    <li><a href="#">Главная</a></li>
     <li><a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2025_2026_final.pdf" target="_blank">Белая кНИГА</a></li>
     <a href="#" id="studlink">СТУДИЙКА+БИБЛ</a>
     <li><a href="https://t.me/cvut_fjfi" target="_blank">Telegram</a></li>
+    <li><a href="#" id="veterans-link">Ветераны</a></li>
   </ul>
 </nav>
 
@@ -243,9 +242,7 @@ input[type="text"] {
   <button class="btn" id="schedule-btn">Расписания пар</button>
   <button class="btn" id="schedulejaz-btn">Расписания языков</button>
   <button class="btn" id="praktiki-btn">Практики</button>
-  <button class="btn" id="apin-btn">APIN</button>
-  <button class="btn" id="pervakam-btn">Первакам</button>
-  <button class="btn" id="veterany-btn">Ветераны</button>
+  <button class="btn" id="predmety-btn">Предметы</button>
 </div>
 
   <div class="chat-block">
@@ -408,13 +405,18 @@ const groups = {
     "3-Mereni modulu pruznosti",
     "4-Cavendishuv experiment",
     "5-Mereni Poissonovy konstanty",
+    "6-Kalorimetrie",
     "7-Mereni povrchoveho napeti",
     "8-Kondenzator",
     "9-Rozsiseni rozsahu miliampermetru",
     "10-Harmonicke oscilace",
-    "11-Rezonancni-obvody"
+    "11-Rezonancni obvody",
+    "12-Sonar"
   ],
   "PRA2": [
+    "1-Akustika",
+    "2-Hysterezni smycka",
+    "3-Mirny naboj elektronu",
     "4-Balmerova serie",
     "5-Mereni teploty wolframoveho vlakna",
     "6-Geometricka optika",
@@ -423,7 +425,7 @@ const groups = {
     "9-Polarizace svetla",
     "10-Interference a difrakce svetla",
     "11-Mereni kvantovych vlastnosti atomu",
-    "12-Urceni Planckovy konstantyz",
+    "12-Urceni Planckovy konstanty",
     "13-Vysokoteplotni plazma na tokamaku"
   ],
   "ZFM1": ["Neprime mereni"],
@@ -441,24 +443,81 @@ const groups = {
 // Пути к PDF
 const pdfPaths = {
   "2-Dynamika rotacniho pohybu": "Protokoly/PRA1/2/2-Dynamika-rotacniho-pohybu.pdf",
-  "3-Mereni modulu pruznosti": "Protokoly/PRA1/3/3-Mereni-modulu-pruznosti.pdf",
-  "4-Cavendishuv experiment": "Protokoly/PRA1/4/4-Cavendishuv-experiment.pdf",
-  "5-Mereni Poissonovy konstanty": "Protokoly/PRA1/5/5-Mereni-Poissonovy-konstanty.pdf",
-  "7-Mereni povrchoveho napeti": "Protokoly/PRA1/7/7-Mereni-povrchoveho-napeti.pdf",
-  "8-Kondenzator": "Protokoly/PRA1/8/8-Kondenzator.pdf",
-  "9-Rozsiseni rozsahu miliampermetru": "Protokoly/PRA1/9/9-Rozsiseni-rozsahu-miliampermetru.pdf",
-  "10-Harmonicke oscilace": "Protokoly/PRA1/10/10-Harmonicke-oscilace.pdf",
-  "11-Rezonancni obvody": "Protokoly/PRA1/11/11-Rezonancni-obvody.pdf",
-  "4-Balmerova serie": "Protokoly/PRA2/4/4-Balmerova-serie.pdf",
-  "5-Mereni teploty wolframoveho vlakna": "Protokoly/PRA2/5/5-Mereni-teploty-wolframoveho-vlakna.pdf",
-  "6-Geometricka optika": "Protokoly/PRA2/6/6-Geometricka-optika.pdf",
-  "7-Mereni spektra gama zareni": "Protokoly/PRA2/7/7-Mereni-spektra-gama-zareni.pdf",
-  "8-Mikrovlny": "Protokoly/PRA2/8/8-Mikrovlny.pdf",
+  "3-Mereni modulu pruznosti": [
+    { url: "Protokoly/PRA1/3/3-Mereni-modulu-pruznosti.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=03+Pružnost.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "4-Cavendishuv experiment": [
+    { url: "Protokoly/PRA1/4/4-Cavendishuv-experiment.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=04+Cavendish.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "5-Mereni Poissonovy konstanty": [
+    { url: "Protokoly/PRA1/5/5-Mereni-Poissonovy-konstanty.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=05+Poisson.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "6-Kalorimetrie": [
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=06+Kalorimetrie.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 1" }
+  ],
+  "7-Mereni povrchoveho napeti": [
+    { url: "Protokoly/PRA1/7/7-Mereni-povrchoveho-napeti.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=07+Povrchové+napětí.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "8-Kondenzator": [
+    { url: "Protokoly/PRA1/8/8-Kondenzator.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=08+Kondenzátor.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "9-Rozsiseni rozsahu miliampermetru": [
+    { url: "Protokoly/PRA1/9/9-Rozsiseni-rozsahu-miliampermetru.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=09+Kompenzátor.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "10-Harmonicke oscilace": [
+    { url: "Protokoly/PRA1/10/10-Harmonicke-oscilace.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=10+Harmonické+oscilace.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "11-Rezonancni obvody": [
+    { url: "Protokoly/PRA1/11/11-Rezonancni-obvody.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=11+Rezonanční+obvody.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "12-Sonar": [
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=12+Sonar.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 1" }
+  ],
+  "1-Akustika": [
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=01+Akustika.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "2-Hysterezni smycka": [
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=02+Hysterezni+smycka.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "3-Mirny naboj elektronu": [
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=03+Elektron.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "4-Balmerova serie": [
+    { url: "Protokoly/PRA2/4/4-Balmerova-serie.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=04+Balmer.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "5-Mereni teploty wolframoveho vlakna": [
+    { url: "Protokoly/PRA2/5/5-Mereni-teploty-wolframoveho-vlakna.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=05+Wolfram.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "6-Geometricka optika": [
+    { url: "Protokoly/PRA2/6/6-Geometricka-optika.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=06+Optika.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "7-Mereni spektra gama zareni": [
+    { url: "Protokoly/PRA2/7/7-Mereni-spektra-gama-zareni.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=07+Gama.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "8-Mikrovlny": [
+    { url: "Protokoly/PRA2/8/8-Mikrovlny.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=08+Mikrovlny.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
   "9-Polarizace svetla": "Protokoly/PRA2/9/9-Polarizace-svetla.pdf",
   "10-Interference a difrakce svetla": "Protokoly/PRA2/10/10-Interference-a-difrakce-svetla.pdf",
   "11-Mereni kvantovych vlastnosti atomu": "Protokoly/PRA2/11/11-Mereni-kvantovych-vlastnosti-atomu.pdf",
   "12-Urceni Planckovy konstanty": "Protokoly/PRA2/12/12-Urceni-Planckovy-konstanty.pdf",
-  "13-Vysokoteplotni plazma na tokamaku": "Protokoly/PRA2/13/13-Vysokoteplotni-plazma-na-tokamaku.pdf",
+  "13-Vysokoteplotni plazma na tokamaku": [
+    { url: "Protokoly/PRA2/13/13-Vysokoteplotni-plazma-na-tokamaku.pdf", label: "ССЫЛКА 1" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=tokamak.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
   "1-Zeeman": "Protokoly/SPRA/1/Zeeman.pdf",
   "2-Kvantove smazani": "Protokoly/SPRA/2/Kvantove_smazani.pdf",
   "3-LIDAR": "Protokoly/SPRA/3/LIDAR.pdf",
@@ -476,9 +535,7 @@ const windowA = `<h2>Добро пожаловать!</h2>
 <button class="btn" id="schedule-btn">Расписания пар</button>
 <button class="btn" id="schedulejaz-btn">Расписания языков</button>
 <button class="btn" id="praktiki-btn">Практики</button>
-<button class="btn" id="apin-btn">APIN</button>
-<button class="btn" id="pervakam-btn">Первакам</button>
-<button class="btn" id="veterany-btn">Ветераны</button>`;
+<button class="btn" id="predmety-btn">Предметы</button>`;
 // Функция для показа картинки ветеранов
 function showVeterans() {
   centralBlock.innerHTML = `<h2>Ветераны</h2>`;
@@ -499,16 +556,11 @@ function showVeterans() {
   centralBlock.appendChild(backBtn);
 }
 
-const apinBtn = document.getElementById('apin-btn');
-const apinSound = document.getElementById('apin-sound');
 
-apinBtn.addEventListener('click', () => {
-  if (!apinSound.paused) return;  // если звук уже играет, ничего не делаем
-  apinSound.currentTime = 0;
-  apinSound.play();
+document.getElementById('veterans-link').addEventListener('click', (e) => {
+  e.preventDefault();
+  showVeterans();
 });
-
-
 
 function showWindowB() {
   centralBlock.innerHTML = `<h2>Практики</h2>`;
@@ -527,6 +579,97 @@ function showWindowB() {
   centralBlock.appendChild(backBtn);
 }
 
+
+function showWindowC() {
+  centralBlock.innerHTML = `<h2>Предметы</h2>`;
+
+  const years = [
+    { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","FFF","GGG","HHH","AAA"] },
+    { text: "2 год", subjects: ["III","JJJ","KKK","LLL","MMM","NNN","OOO","PPP"] },
+    { text: "3 год", subjects: ["QQQ","RRR","SSS","TTT","UUU","VVV","WWW","XXX"] }
+  ];
+
+  years.forEach(y => {
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = y.text;
+    btn.onclick = () => showSubjects(y.subjects);
+    centralBlock.appendChild(btn);
+  });
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn';
+  backBtn.textContent = 'Назад';
+  backBtn.style.marginTop = '15px';
+  backBtn.onclick = () => centralBlock.innerHTML = windowA;
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////м
+// Функция показа предметов сеткой
+function showSubjects(subjects) {
+  centralBlock.innerHTML = `<h2>Предметы</h2>`;
+
+  const grid = document.createElement('div');
+  grid.style.display = 'grid';
+  grid.style.gridTemplateColumns = 'repeat(6, 1fr)';
+  grid.style.gap = '10px';
+
+  subjects.forEach(sub => {
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = sub;
+
+    btn.onclick = () => {
+      // Если ELMA — показываем две кнопки с ссылками
+      if (sub === "ELMA") {
+        centralBlock.innerHTML = `<h2>${sub}</h2>`;
+        
+        const link1 = document.createElement('a');
+        link1.href = "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AIjUS0ms_33IVWVmvG5L8KA/2.%20ročník/letní/ELMA?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1";
+        link1.textContent = "ССЫЛКА 1";
+        link1.className = "btn";
+        link1.target = "_blank";
+        centralBlock.appendChild(link1);
+
+        const link2 = document.createElement('a');
+        link2.href = "https://mega.nz/folder/jV4DSYxR#nqR9E5sRPTlTwbT6ikEBCg/folder/yMw3RTLB";
+        link2.textContent = "ССЫЛКА 2";
+        link2.className = "btn";
+        link2.target = "_blank";
+        centralBlock.appendChild(link2);
+
+        // Кнопка назад
+        const backBtn = document.createElement('button');
+        backBtn.className = 'btn';
+        backBtn.textContent = 'Назад';
+        backBtn.style.marginTop = '15px';
+        backBtn.onclick = () => showSubjects(subjects);
+        centralBlock.appendChild(document.createElement('br'));
+        centralBlock.appendChild(backBtn);
+
+      } else {
+        // Для остальных предметов — старое поведение
+        alert(`Вы выбрали предмет ${sub}`);
+      }
+    }
+
+    grid.appendChild(btn);
+  });
+
+  centralBlock.appendChild(grid);
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn';
+  backBtn.textContent = 'Назад';
+  backBtn.style.marginTop = '15px';
+  backBtn.onclick = () => showWindowC();
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
+
+
+
 function showGroupProtocols(group){
   centralBlock.innerHTML=`<h2>${group}</h2><p>Выберите протокол:</p>`;
   groups[group].forEach(file=>{
@@ -544,22 +687,41 @@ function showGroupProtocols(group){
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
+
 function showPdfWindow(group, file, returnToMain = false) {
   centralBlock.innerHTML = `<h2>${file}</h2>`;
 
-  const path = pdfPaths[file];
+  let paths = pdfPaths[file];
+  if (!paths) return;
 
-  if (path && (path.endsWith('.jpg') || path.endsWith('.png') || path.endsWith('.jpeg') || path.endsWith('.gif'))) {
-    // ----- картинка -----
+  // если в pdfPaths лежит строка → превращаем в массив
+  if (!Array.isArray(paths)) {
+    paths = [paths];
+  }
+
+  paths.forEach(item => {
+  let url, label;
+
+  if (typeof item === 'string') {
+    url = item;
+    label = item.split('/').pop() || item; // старое поведение для строк
+  } else {
+    url = item.url;
+    label = item.label || (item.url.split('/').pop() || item.url);
+  }
+
+  // Проверка — картинка или PDF/ссылка
+  if (/\.(jpg|jpeg|png|gif)$/i.test(url)) {
     const img = document.createElement('img');
-    img.src = path;
+    img.src = url;
     img.style.maxWidth = '90%';
     img.style.maxHeight = '70vh';
     img.style.border = '3px solid #333';
     img.style.borderRadius = '10px';
+    img.style.display = 'block';
+    img.style.marginBottom = '15px';
     centralBlock.appendChild(img);
   } else {
-    // ----- PDF -----
     const fileDiv = document.createElement('div');
     fileDiv.style.display = 'flex';
     fileDiv.style.justifyContent = 'space-between';
@@ -572,25 +734,28 @@ function showPdfWindow(group, file, returnToMain = false) {
     fileDiv.style.fontWeight = 'bold';
 
     const link = document.createElement('a');
-    link.href = path;
-    link.textContent = file + '.pdf';
+    link.href = url;
+    link.textContent = label;   // <<< теперь берёт красивый текст
     link.style.color = '#003366';
     link.style.textDecoration = 'none';
     link.target = '_blank';
     fileDiv.appendChild(link);
 
-    const downloadBtn = document.createElement('a');
-    downloadBtn.href = path;
-    downloadBtn.download = file + '.pdf';
-    downloadBtn.textContent = '⬇';
-    downloadBtn.style.marginLeft = '10px';
-    downloadBtn.style.color = '#003366';
-    downloadBtn.style.textDecoration = 'none';
-    downloadBtn.style.fontSize = '20px';
-    fileDiv.appendChild(downloadBtn);
+    if (url.endsWith('.pdf') && !url.startsWith('http')) {
+      const downloadBtn = document.createElement('a');
+      downloadBtn.href = url;
+      downloadBtn.download = url.split('/').pop();
+      downloadBtn.textContent = '⬇';
+      downloadBtn.style.marginLeft = '10px';
+      downloadBtn.style.color = '#003366';
+      downloadBtn.style.textDecoration = 'none';
+      downloadBtn.style.fontSize = '20px';
+      fileDiv.appendChild(downloadBtn);
+    }
 
     centralBlock.appendChild(fileDiv);
   }
+});
 
   // ----- кнопка Назад -----
   const backBtn = document.createElement('button');
@@ -599,9 +764,9 @@ function showPdfWindow(group, file, returnToMain = false) {
   backBtn.style.marginTop = '15px';
   backBtn.onclick = () => {
     if (returnToMain) {
-      centralBlock.innerHTML = windowA; // вернуться на главный экран
+      centralBlock.innerHTML = windowA;
     } else {
-      showGroupProtocols(group); // вернуться к списку группы
+      showGroupProtocols(group);
     }
   };
   centralBlock.appendChild(document.createElement('br'));
@@ -670,12 +835,10 @@ function showScheduleWindow() {
 centralBlock.addEventListener('click', (e) => {
   if (e.target && e.target.id === 'praktiki-btn') {
     showWindowB();
+  } else if (e.target && e.target.id === 'predmety-btn') {
+    showWindowC();
   } else if (e.target && e.target.id === 'schedule-btn') {
     showScheduleWindow();
-  } else if (e.target && e.target.id === 'veterany-btn') {
-    showVeterans();
-  } else if (e.target && e.target.id === 'pervakam-btn') {
-  showPdfWindow('', 'Файл2', true);
   } else if (e.target && e.target.id === 'schedulejaz-btn') {
   showScheduleWindow2();
   }
