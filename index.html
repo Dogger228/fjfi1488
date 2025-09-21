@@ -36,18 +36,15 @@ header {
   animation: scroll 15s linear infinite, color-change 5s linear infinite;
 }
 
-/* На маленьких экранах (мобильных) ставим чат снизу */
-@media (max-width: 480px) {
-  .main-wrapper {
-    flex-direction: column; /* центральный блок сверху, чат снизу */
-    height: auto;
-  }
-  .chat-block {
-    width: 100%;
-    min-width: auto;
-    height: 250px; /* фиксируем высоту чата */
-    margin-top: 15px;
-  }
+
+@media (max-width: 768px) {
+    .chat {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: none;
+        height: 50%; /* или авто */
+    }
 }
 
 /* Анимация движения текста */
