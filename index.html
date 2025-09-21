@@ -439,6 +439,62 @@ const groups = {
   ],
   "Общие": ["Navod", "Файл2"]
 };
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////м
+const subjectLinks = {
+  "ELMA": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1V0vkj_pFHwjANR4kMmzpzAeKHLjBC8Ki" },
+    { label: "ССЫЛКА 2", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AIjUS0ms_33IVWVmvG5L8KA/2.%20ročník/letní/ELMA?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/16nmZb0aKqvB_bL1ZV7Wi-awhz_Q6ywvz" },
+    { label: "ССЫЛКА 4", url: "https://zapisky.adamator.eu/elma/vycuc.html" },
+    { label: "ССЫЛКА 5", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/ELMA" }
+  ],
+  "MECH": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-MhqcEpcMXONjboWoEGnQFin_zLsb2vK" }
+  ],
+  "LAL": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-NT0sA-ZYiCS4gYLAA977D5iz9vyaOkk" },
+    { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1nZEfQ_kat_lyM3Q9oMdZm-XfwOsimwKz" }
+  ],
+  "MAN": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-Ek8aM99GCTRnUmwNiuamERQsXMq5ZS_" },
+    { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1BK_xIzLpkDp8n9qb1EhADp3E4cK1xBLr" },
+    { label: "ССЫЛКА 3", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/Analyza" },
+    { label: "ССЫЛКА 4", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/MAA2" },
+    { label: "ССЫЛКА 5", url: "https://drive.google.com/drive/folders/1LQJu92qIJM34qzyxnGhOQpKj4elrpByu" }
+  ],
+  "VOAF": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1Qmky0a_ji4hVip2rUyudCqDyAXYFbFwl" },
+    { label: "ССЫЛКА 2", url: "https://zapisky.adamator.eu/voafcv" }
+  ],
+  "TSFA": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1JodAUKfqnSry8PR-jAUZcNDRJG5H_JV8" }
+  ],
+  "TER": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1A4cRkf20gyWGVKZKkbPlIHtAVX6PhXvq" },
+    { label: "ССЫЛКА 2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/TER" },
+    { label: "ССЫЛКА 3", url: "https://zapisky.adamator.eu/tercv" }
+  ],
+  "TSFA": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1JodAUKfqnSry8PR-jAUZcNDRJG5H_JV8" }
+  ],
+  "TEF": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1mCq8bMPWzsEmHjnuRwelkKc7Qf9hwO-x" },
+    { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1EtM4ZkcAuZOu8ccysjgxMYb-DP0CPFkh" }
+  ],
+  "TER": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1A4cRkf20gyWGVKZKkbPlIHtAVX6PhXvq" },
+    { label: "ССЫЛКА 2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/TER" },
+    { label: "ССЫЛКА 3", url: "https://zapisky.adamator.eu/tercv" }
+  ],
+  "LAL": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-NT0sA-ZYiCS4gYLAA977D5iz9vyaOkk" },
+    { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1nZEfQ_kat_lyM3Q9oMdZm-XfwOsimwKz" },
+    { label: "ССЫЛКА 3", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/Lin.%20Algebra" },
+    { label: "ССЫЛКА 4", url: "https://drive.google.com/drive/folders/1BK4qjkJ-ZQYGbN_-f-h31kdk6YyxP8ab" }
+  ],
+};
+
+
 
 // Пути к PDF
 const pdfPaths = {
@@ -584,9 +640,9 @@ function showWindowC() {
   centralBlock.innerHTML = `<h2>Предметы</h2>`;
 
   const years = [
-    { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","FFF","GGG","HHH","AAA"] },
-    { text: "2 год", subjects: ["III","JJJ","KKK","LLL","MMM","NNN","OOO","PPP"] },
-    { text: "3 год", subjects: ["QQQ","RRR","SSS","TTT","UUU","VVV","WWW","XXX"] }
+    { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL"] },
+    { text: "2 год", subjects: ["TEF","TER","TSFA","VOAF"] },
+    { text: "3 год", subjects: ["ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ"] }
   ];
 
   years.forEach(y => {
@@ -605,8 +661,7 @@ function showWindowC() {
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////м
-// Функция показа предметов сеткой
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function showSubjects(subjects) {
   centralBlock.innerHTML = `<h2>Предметы</h2>`;
 
@@ -620,54 +675,52 @@ function showSubjects(subjects) {
     btn.className = 'btn';
     btn.textContent = sub;
 
-    btn.onclick = () => {
-      // Если ELMA — показываем две кнопки с ссылками
-      if (sub === "ELMA") {
-        centralBlock.innerHTML = `<h2>${sub}</h2>`;
-        
-        const link1 = document.createElement('a');
-        link1.href = "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AIjUS0ms_33IVWVmvG5L8KA/2.%20ročník/letní/ELMA?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1";
-        link1.textContent = "ССЫЛКА 1";
-        link1.className = "btn";
-        link1.target = "_blank";
-        centralBlock.appendChild(link1);
-
-        const link2 = document.createElement('a');
-        link2.href = "https://mega.nz/folder/jV4DSYxR#nqR9E5sRPTlTwbT6ikEBCg/folder/yMw3RTLB";
-        link2.textContent = "ССЫЛКА 2";
-        link2.className = "btn";
-        link2.target = "_blank";
-        centralBlock.appendChild(link2);
-
-        // Кнопка назад
-        const backBtn = document.createElement('button');
-        backBtn.className = 'btn';
-        backBtn.textContent = 'Назад';
-        backBtn.style.marginTop = '15px';
-        backBtn.onclick = () => showSubjects(subjects);
-        centralBlock.appendChild(document.createElement('br'));
-        centralBlock.appendChild(backBtn);
-
-      } else {
-        // Для остальных предметов — старое поведение
-        alert(`Вы выбрали предмет ${sub}`);
-      }
-    }
+    btn.onclick = () => showSubjectLinks(sub, subjects);
 
     grid.appendChild(btn);
   });
 
   centralBlock.appendChild(grid);
 
+  // Кнопка назад к предыдущему окну
   const backBtn = document.createElement('button');
   backBtn.className = 'btn';
   backBtn.textContent = 'Назад';
   backBtn.style.marginTop = '15px';
-  backBtn.onclick = () => showWindowC();
+  backBtn.onclick = () => showWindowC(); // или другая функция возврата
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
 
+// 3. Функция показа ссылок по выбранному предмету
+function showSubjectLinks(subject, subjects) {
+  centralBlock.innerHTML = `<h2>${subject}</h2>`; // Заголовок
+
+  const links = subjectLinks[subject];
+  if (links) {
+    links.forEach(item => {
+      const linkBtn = document.createElement('button');
+      linkBtn.className = 'btn';
+      linkBtn.textContent = item.label;
+      linkBtn.onclick = () => window.open(item.url, '_blank');
+      centralBlock.appendChild(linkBtn);
+    });
+  } else {
+    // Если ссылок нет — просто уведомление
+    const msg = document.createElement('p');
+    msg.textContent = "Ссылки для этого предмета отсутствуют";
+    centralBlock.appendChild(msg);
+  }
+
+  // Кнопка назад к списку предметов
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn';
+  backBtn.style.marginTop = '15px';
+  backBtn.textContent = 'Назад';
+  backBtn.onclick = () => showSubjects(subjects);
+  centralBlock.appendChild(document.createElement('br'));
+  centralBlock.appendChild(backBtn);
+}
 
 
 function showGroupProtocols(group){
