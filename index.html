@@ -217,6 +217,7 @@ input[type="text"] {
   <ul>
     <li><a href="#">Главная</a></li>
     <li><a href="https://edu.fjfi.cvut.cz/edu/BK/BK_2025_2026_final.pdf" target="_blank">Белая кНИГА</a></li>
+    <a href="#" id="studlink">СТУДИЙКА+БИБЛ</a>
     <li><a href="https://t.me/cvut_fjfi" target="_blank">Telegram</a></li>
   </ul>
 </nav>
@@ -289,6 +290,15 @@ input[type="text"] {
 
 
 <script>
+
+document.getElementById("studlink").addEventListener("click", (e) => {
+  e.preventDefault();
+  showPdfWindow('', 'STUDBI', true);
+});
+
+
+
+
 
 // ===== Firebase =====
 const firebaseConfig = {
@@ -456,6 +466,7 @@ const pdfPaths = {
   "5-Generování náhodných čísel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf",
   "Navod": "Protokoly/Common/Navod(TabulkyObrazky).pdf",
   "Файл2": "img/fw.jpg",
+  "STUDBI": "img/STUDBI.jpg",
   "Neprime mereni": "Protokoly/ZFM1/Neprime-mereni.pdf",
   "Первакам": "img/fw.jpg",
 };
