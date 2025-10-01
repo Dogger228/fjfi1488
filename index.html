@@ -468,6 +468,12 @@ const subjectLinks = {
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-NT0sA-ZYiCS4gYLAA977D5iz9vyaOkk" },
     { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1nZEfQ_kat_lyM3Q9oMdZm-XfwOsimwKz" }
   ],
+  "KTPA": [
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/10sAbMhn9P3UbmiIwROVnWXoAL0-UZc-h" },
+    { label: "ССЫЛКА 2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Ing/4.%20ročník/KTPA" },
+    { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/1eqasoVz3orQu97Q8Ju_8mDbPZzlTRHNY" },
+    { label: "ССЫЛКА 4", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Ing/4.%20ročník/KTPA2" }
+  ],
   "MAN": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-Ek8aM99GCTRnUmwNiuamERQsXMq5ZS_" },
     { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1BK_xIzLpkDp8n9qb1EhADp3E4cK1xBLr" },
@@ -655,7 +661,8 @@ function showWindowC() {
   const years = [
     { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL"] },
     { text: "2 год", subjects: ["TEF","TER","TSFA","VOAF"] },
-    { text: "3 год", subjects: ["ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ"] }
+    { text: "3 год", subjects: ["ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ","ХУЙ"] },
+    { text: "KTPA", subjects: ["KTPA"]}
   ];
 
   years.forEach(y => {
@@ -700,7 +707,7 @@ function showSubjects(subjects) {
   backBtn.className = 'btn';
   backBtn.textContent = 'Назад';
   backBtn.style.marginTop = '15px';
-  backBtn.onclick = () => showWindowC(); // или другая функция возврата
+  backBtn.onclick = () => showWindowC(); 
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
@@ -848,7 +855,7 @@ function showScheduleWindow2() {
     {text: 'Бакалавр 1 год', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_JAZ_BS1.pdf'},
     {text: 'Бакалавр 2 год', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_JAZ_BS2.pdf'},
     {text: 'Бакалавр 3 год', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_JAZ_BS3.pdf'},
-    {text: 'Магистр', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_APIN.pdf'},
+    {text: 'Магистр', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_APIN.pdf'}
   ];
 
   schedules.forEach(s=>{
