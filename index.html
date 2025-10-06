@@ -48,6 +48,9 @@ header {
     }
 }
 
+
+
+
 /* Анимация движения текста */
 @keyframes scroll {
   0%   { transform: translateX(100%); }
@@ -216,10 +219,20 @@ input[type="text"] {
   padding: 5px;
 }
 </style>
+
+<link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
+
 </head>
 <body>
 
+<script src="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/Snow.min.js"></script>
+<script>
+	new Snow ();
+</script>
+
+
 <header>
+
   <div class="marquee">
     <div class="marquee-content">🏫 VÍTÁME VÁS NA FAKULTĚ JADERNÉ A FYZIKÁLNĚ INŽENÝRSKÉ V PRAZE 🏫</div>
   </div>
@@ -234,12 +247,12 @@ input[type="text"] {
   </ul>
 </nav>
 
+
+
 <div class="main-wrapper">
   <div class="banner-block">
     <img src="gif/G.gif" alt="G1" style="width:160px; height:300px;">
   </div>
-
-
 
 <div class="central-block" id="central-block">
   <h2>Добро пожаловать!</h2>
@@ -453,6 +466,9 @@ const subjectLinks = {
     { label: "ССЫЛКА 4", url: "https://zapisky.adamator.eu/elma/vycuc.html" },
     { label: "ССЫЛКА 5", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/ELMA" },
     { label: "ССЫЛКА 6", url: "https://drive.google.com/drive/folders/13QOHczZTUNUV9Ol5e-rxi8q9ixnHFGbr" }
+  ],
+  "Языки": [
+    { label: "FJ", url: "https://drive.google.com/drive/folders/1bRaNqNiKW2CBPniIATuC0yOC42p_8xin" }
   ],
   "MECH": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-MhqcEpcMXONjboWoEGnQFin_zLsb2vK" },
@@ -703,7 +719,8 @@ function showWindowC() {
     { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","TER","UING","CHEMIE","DIM","UJRF"] },
     { text: "2 год", subjects: ["TEF","TSFA","VOAF","ANB34\ANA34","DIFR","NMA","NME"] },
     { text: "3 год", subjects: ["FKO","FAN","SF"] },
-    { text: "Магистр", subjects: ["KTPA"]}
+    { text: "Магистр", subjects: ["KTPA"]},
+    { text: "Гуманитарная хуета", subjects: ["Языки","Право","Этика","Риторика"]}
   ];
 
   years.forEach(y => {
