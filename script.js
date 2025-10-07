@@ -107,6 +107,7 @@ const centralBlock = document.getElementById('central-block');
 // Группы и протоколы
 const groups = {
   "PRA1": [
+    "1-Vzduchova draha",
     "2-Dynamika rotacniho pohybu",
     "3-Mereni modulu pruznosti",
     "4-Cavendishuv experiment",
@@ -117,7 +118,8 @@ const groups = {
     "9-Rozsiseni rozsahu miliampermetru",
     "10-Harmonicke oscilace",
     "11-Rezonancni obvody",
-    "12-Sonar"
+    "12-Coulombuv zakon",
+    "13-Sonar"
   ],
   "PRA2": [
     "1-Akustika",
@@ -132,7 +134,8 @@ const groups = {
     "10-Interference a difrakce svetla",
     "11-Mereni kvantovych vlastnosti atomu",
     "12-Urceni Planckovy konstanty",
-    "13-Vysokoteplotni plazma na tokamaku"
+    "13-Vysokoteplotni plazma na tokamaku",
+    "14-Objevovani castic na detektoru ATLAS"
   ],
   "ZFM": ["Neprime mereni", "ХЗЧТО", "ZFM_1", "ZFM_2", "ZFM_12"],
   "SPRA": [
@@ -155,9 +158,16 @@ const subjectLinks = {
     { label: "ССЫЛКА 6", url: "https://drive.google.com/drive/folders/13QOHczZTUNUV9Ol5e-rxi8q9ixnHFGbr" }
   ],
   "Языки": [
-    { label: "FJ", url: "https://drive.google.com/drive/folders/1bRaNqNiKW2CBPniIATuC0yOC42p_8xin" }
+    { label: "CES(Kovářová)", url: "https://kmlinux.fjfi.cvut.cz/~verneja1/index.php?idcla=35" },
+    { label: "AM(Kovářová)", url: "https://kmlinux.fjfi.cvut.cz/~verneja1/index.php?idcla=33" },
+    { label: "AP", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/AP3" },
+    { label: "FJ", url: "https://drive.google.com/drive/folders/1bRaNqNiKW2CBPniIATuC0yOC42p_8xin" },
+    { label: "NM", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AB2c13YcSLk9UkZCwt1rL1g/NM123?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "NP12", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/NP12" },
+    { label: "NP3", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/NP3" }
   ],
   "MECH": [
+    { label: "Stoll", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/1.%20rocnik/Stoll-I.-Mechanika.pdf" },
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-MhqcEpcMXONjboWoEGnQFin_zLsb2vK" },
     { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1kTUrv3vkYvKrXney2cxiulcC0F6-kXcX" },
     { label: "ССЫЛКА 3", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AKK2se-roTH31UjN1cIQe58/1.%20ročník/MECH?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
@@ -182,13 +192,15 @@ const subjectLinks = {
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1Qmky0a_ji4hVip2rUyudCqDyAXYFbFwl" },
     { label: "ССЫЛКА 2", url: "https://zapisky.adamator.eu/voafcv" },
     { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/11Zh3Ejl8v_vg9xwR7twnPa0ETcpziFp_" },
-    { label: "ССЫЛКА 4", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALvGvHiWZOEISVDMTh9eTx4/2.%20ročník/zimní/VOAF?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
+    { label: "ССЫЛКА 4", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALvGvHiWZOEISVDMTh9eTx4/2.%20ročník/zimní/VOAF?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "ССЫЛКА 5", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/VOAF" }
   ],
   "TSFA": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1JodAUKfqnSry8PR-jAUZcNDRJG5H_JV8" },
     { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1mkbzUkEE7v9J0DkAC-tY7YdESE73AitI" },
     { label: "ССЫЛКА 3", url: "https://drive.google.com/file/d/1-0jDj0uSFlpi0ekqfiJcrZymBOQ6165A/view?usp=drive_link" },
-    { label: "ССЫЛКА 4", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AK1DXAGdihJx9IWk0dtS63k/2.%20ročník/letní/TSFA?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
+    { label: "ССЫЛКА 4", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AK1DXAGdihJx9IWk0dtS63k/2.%20ročník/letní/TSFA?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "ССЫЛКА 5", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/TSFA" }
   ],
   "TEF": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1mCq8bMPWzsEmHjnuRwelkKc7Qf9hwO-x" },
@@ -196,7 +208,9 @@ const subjectLinks = {
     { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/1oPDq3DSO7DZ_mdTfk7XKOUMcUn26LVnq" },
     { label: "ССЫЛКА 4", url: "https://drive.google.com/drive/folders/1h6pSrOQWGlYgGar7wVAJBDVySk2P8JCB" },
     { label: "TEF_2", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AC67ZHK-GW2FcvfVHkwt1qA/2.%20ročník/letní/TEF2?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
-    { label: "TEF_12", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJzZbq47pjww5rWpMNB4xmo/2.%20ročník/zimní/TEF?rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1&dl=0" }
+    { label: "TEF_12", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJzZbq47pjww5rWpMNB4xmo/2.%20ročník/zimní/TEF?rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1&dl=0" },
+    { label: "TEF_2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/TEF2" },
+    { label: "TEF_1", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/TEF1" }
   ],
   "TER": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1A4cRkf20gyWGVKZKkbPlIHtAVX6PhXvq" },
@@ -225,10 +239,13 @@ const subjectLinks = {
     { label: "ANA_34", url: "https://drive.google.com/drive/folders/1QXb7frVOFHMwMJMQRPw2dw1SrEBtB0Qw" },
     { label: "ANB_3", url: "https://drive.google.com/drive/folders/13uFXNxPdCBfI_eRz29Y4jPy_1ifoSNv-" },
     { label: "ANB_4", url: "https://drive.google.com/drive/folders/136Lpb46GPekstQ5HsFseWqoO8bxC-xrN" },
-    { label: "ANB_4", url: "https://drive.google.com/drive/folders/1rA41RO3ByHo97k9_ztWT1cf3Ockj1SC5" }
+    { label: "ANB_4", url: "https://drive.google.com/drive/folders/1rA41RO3ByHo97k9_ztWT1cf3Ockj1SC5" },
+    { label: "ANA_4", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/MAA4" },
+    { label: "ANA_3", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/MAA3" }
   ],
   "DIFR": [
-    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1U499EC8lKr80bn7VJnkKrUgXBipopQ5p" }
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1U499EC8lKr80bn7VJnkKrUgXBipopQ5p" },
+    { label: "ССЫЛКА 2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/DIFR" }
   ],
   "DIM": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1cvhEm38XvtSeIufbfOyRUIaZhsC7h6b2" }
@@ -237,10 +254,13 @@ const subjectLinks = {
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1eQY76H-anFRWjLTurWeAlPgOfS4xZUdy" }
   ],
   "FKO": [
-    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1qGcrmBnnGLMJF0DqyCmzek0g99DM3X-D" }
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1qGcrmBnnGLMJF0DqyCmzek0g99DM3X-D" },
+    { label: "ССЫЛКА 2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/FKO" }
   ],
   "FAN": [
-    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1OJwJzGtcTCcRyT0e7Kjm0NTPu6w2f4FI" }
+    { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1OJwJzGtcTCcRyT0e7Kjm0NTPu6w2f4FI" },
+    { label: "FA 2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/FA2" },
+    { label: "FAN 1", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/FAN1" }
   ],
   "UJRF": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1bQAHxWEtRp0EIBJiILGZZkkzr7R0RMrE" }
@@ -254,10 +274,47 @@ const subjectLinks = {
     { label: "NME_2", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AHI6ICnuIgHMUr8hyOWBrG0/3.%20ročník/letní/NME2?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
   ],
   "RMF": [
-    { label: "RMF", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/APtBPa-UyKF44ySYKu_io1w/3.%20ročník/zimní/RMF?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
+    { label: "RMF", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/APtBPa-UyKF44ySYKu_io1w/3.%20ročník/zimní/RMF?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "RMF", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/RMF" }
   ],
   "PRST": [
-    { label: "PRST", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ACs78-dRu4hwZVQmTAcYrhw/3.%20ročník/zimní/PRST?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
+    { label: "PRST", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ACs78-dRu4hwZVQmTAcYrhw/3.%20ročník/zimní/PRST?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "PRST", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/PRST" }
+  ],
+  "UKP": [
+    { label: "UKP", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/UKP" }
+  ],
+  "STR": [
+    { label: "MatFyz", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/STR%20Matfyz.pdf" },
+    { label: "STR", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/STR" }
+  ],
+  "SSM": [
+    { label: "SSM", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/SSM" }
+  ],
+  "Реторика": [
+    { label: "Реторика", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/RET" }
+  ],
+  "LCF": [
+    { label: "LCF", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/2.%20rocnik/LCF1" }
+  ],
+  "ALGE": [
+    { label: "ALGE", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/ALGE" }
+  ],
+  "DEM": [
+    { label: "DEM", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/DEM" }
+  ],
+  "GMF": [
+    { label: "GMF1", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/GMF1" }
+  ],
+  "KVAN": [
+    { label: "KVAN_1", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/KVAN1" },
+    { label: "KVAN_2", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/KVAN2" }
+  ],
+  "GTO": [
+    { label: "GTO", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/OR" }
+  ],
+  "ZJF": [
+    { label: "ZJF", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/ZJF" }
   ],
 };
 
@@ -265,7 +322,13 @@ const subjectLinks = {
 
 // Пути к PDF
 const pdfPaths = {
-  "2-Dynamika rotacniho pohybu": "Protokoly/PRA1/2/2-Dynamika-rotacniho-pohybu.pdf",
+  "1-Vzduchova draha": [
+    { url: "https://joseftrojan.cz/praktika/pra1/01.pdf", label: "ССЫЛКА 1" }
+  ],
+  "2-Dynamika rotacniho pohybu": [
+    { url: "Protokoly/PRA1/2/2-Dynamika-rotacniho-pohybu.pdf", label: "ССЫЛКА 1" },
+    { url: "https://joseftrojan.cz/praktika/pra1/02.pdf", label: "ССЫЛКА 2" }
+  ],
   "3-Mereni modulu pruznosti": [
     { url: "Protokoly/PRA1/3/3-Mereni-modulu-pruznosti.pdf", label: "ССЫЛКА 1" },
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=03+Pružnost.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
@@ -279,38 +342,50 @@ const pdfPaths = {
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=05+Poisson.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
   ],
   "6-Kalorimetrie": [
-    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=06+Kalorimetrie.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 1" }
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=06+Kalorimetrie.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 1" },
+    { url: "https://joseftrojan.cz/praktika/pra1/06.pdf", label: "ССЫЛКА 2" }
   ],
   "7-Mereni povrchoveho napeti": [
     { url: "Protokoly/PRA1/7/7-Mereni-povrchoveho-napeti.pdf", label: "ССЫЛКА 1" },
-    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=07+Povrchové+napětí.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=07+Povrchové+napětí.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" },
+    { url: "https://joseftrojan.cz/praktika/pra1/07.pdf", label: "ССЫЛКА 3" }
   ],
   "8-Kondenzator": [
     { url: "Protokoly/PRA1/8/8-Kondenzator.pdf", label: "ССЫЛКА 1" },
-    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=08+Kondenzátor.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=08+Kondenzátor.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" },
+    { url: "https://joseftrojan.cz/praktika/pra1/08.pdf", label: "ССЫЛКА 3" }
   ],
   "9-Rozsiseni rozsahu miliampermetru": [
     { url: "Protokoly/PRA1/9/9-Rozsiseni-rozsahu-miliampermetru.pdf", label: "ССЫЛКА 1" },
-    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=09+Kompenzátor.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+    { url: "https://joseftrojan.cz/praktika/pra1/09.pdf", label: "ССЫЛКА 2" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=09+Kompenzátor.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 3" }
   ],
   "10-Harmonicke oscilace": [
     { url: "Protokoly/PRA1/10/10-Harmonicke-oscilace.pdf", label: "ССЫЛКА 1" },
-    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=10+Harmonické+oscilace.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+    { url: "https://joseftrojan.cz/praktika/pra1/10.pdf", label: "ССЫЛКА 2" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=10+Harmonické+oscilace.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 3" }
   ],
   "11-Rezonancni obvody": [
     { url: "Protokoly/PRA1/11/11-Rezonancni-obvody.pdf", label: "ССЫЛКА 1" },
-    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=11+Rezonanční+obvody.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+    { url: "https://joseftrojan.cz/praktika/pra1/11.pdf", label: "ССЫЛКА 2" },
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=11+Rezonanční+obvody.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 3" }
   ],
-  "12-Sonar": [
+  "12-Coulombuv zakon": [
+    { url: "https://joseftrojan.cz/praktika/pra1/12.pdf", label: "ССЫЛКА 1" }
+  ],
+  "13-Sonar": [
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJV_sQSC0nHgpRqvk13hMs4/2.%20ročník/zimní/PRA1?dl=0&preview=12+Sonar.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 1" }
   ],
   "1-Akustika": [
+    { url: "https://joseftrojan.cz/praktika/pra2/01.pdf", label: "ССЫЛКА 1" },
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=01+Akustika.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
   ],
   "2-Hysterezni smycka": [
+    { url: "https://joseftrojan.cz/praktika/pra2/02.pdf", label: "ССЫЛКА 1" },
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=02+Hysterezni+smycka.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
   ],
   "3-Mirny naboj elektronu": [
+    { url: "https://joseftrojan.cz/praktika/pra2/03.pdf", label: "ССЫЛКА 1" },
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=03+Elektron.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
   ],
   "4-Balmerova serie": [
@@ -333,13 +408,28 @@ const pdfPaths = {
     { url: "Protokoly/PRA2/8/8-Mikrovlny.pdf", label: "ССЫЛКА 1" },
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=08+Mikrovlny.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
   ],
-  "9-Polarizace svetla": "Protokoly/PRA2/9/9-Polarizace-svetla.pdf",
-  "10-Interference a difrakce svetla": "Protokoly/PRA2/10/10-Interference-a-difrakce-svetla.pdf",
-  "11-Mereni kvantovych vlastnosti atomu": "Protokoly/PRA2/11/11-Mereni-kvantovych-vlastnosti-atomu.pdf",
-  "12-Urceni Planckovy konstanty": "Protokoly/PRA2/12/12-Urceni-Planckovy-konstanty.pdf",
+  "9-Polarizace svetla": [
+    { url: "Protokoly/PRA2/9/9-Polarizace-svetla.pdf", label: "ССЫЛКА 1" },
+    { url: "https://joseftrojan.cz/praktika/pra2/09.pdf", label: "ССЫЛКА 2" }
+  ],
+  "10-Interference a difrakce svetla": [
+    { url: "Protokoly/PRA2/10/10-Interference-a-difrakce-svetla.pdf", label: "ССЫЛКА 1" },
+    { url: "https://joseftrojan.cz/praktika/pra2/10.pdf", label: "ССЫЛКА 2" }
+  ],
+  "11-Mereni kvantovych vlastnosti atomu": [
+    { url: "Protokoly/PRA2/11/11-Mereni-kvantovych-vlastnosti-atomu.pdf", label: "ССЫЛКА 1" },
+    { url: "https://joseftrojan.cz/praktika/pra2/11.pdf", label: "ССЫЛКА 2" }
+  ],
+  "12-Urceni Planckovy konstanty": [
+    { url: "Protokoly/PRA2/12/12-Urceni-Planckovy-konstanty.pdf", label: "ССЫЛКА 1" },
+    { url: "https://joseftrojan.cz/praktika/pra2/12.pdf", label: "ССЫЛКА 2" }
+  ],
   "13-Vysokoteplotni plazma na tokamaku": [
     { url: "Protokoly/PRA2/13/13-Vysokoteplotni-plazma-na-tokamaku.pdf", label: "ССЫЛКА 1" },
     { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALHKINg13Ka2WhDfGoSdGek/2.%20ročník/letní/PRA2?dl=0&preview=tokamak.pdf&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ССЫЛКА 2" }
+  ],
+  "14-Objevovani castic na detektoru ATLAS": [
+    { url: "https://joseftrojan.cz/praktika/pra2/14.pdf", label: "ССЫЛКА 1" }
   ],
   "1-Zeeman": "Protokoly/SPRA/1/Zeeman.pdf",
   "2-Kvantove smazani": "Protokoly/SPRA/2/Kvantove_smazani.pdf",
@@ -420,10 +510,10 @@ function showWindowC() {
 
   const years = [
     { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","TER","UING","CHEMIE","DIM","UJRF"] },
-    { text: "2 год", subjects: ["TEF","TSFA","VOAF","ANB34\ANA34","DIFR","NMA","NME"] },
-    { text: "3 год", subjects: ["FKO","FAN","SF","RMF","PRST"] },
-    { text: "Магистр", subjects: ["KTPA"]},
-    { text: "Гуманитарная хуета", subjects: ["Языки","Право","Этика","Риторика"]}
+    { text: "2 год", subjects: ["TEF","TSFA","VOAF","ANB34\ANA34","DIFR","NMA","NME","UKP","STR","LCF"] },
+    { text: "3 год", subjects: ["FKO","FAN","SF","RMF","PRST","GMF","KVAN","ZJF","DEM","ALGE"] },
+    { text: "Магистр", subjects: ["KTPA","GTO"]},
+    { text: "Гуманитарная хуета", subjects: ["Языки","Право","Этика","Реторика"]}
   ];
 
   years.forEach(y => {
