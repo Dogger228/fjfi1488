@@ -134,8 +134,7 @@ const groups = {
     "12-Urceni Planckovy konstanty",
     "13-Vysokoteplotni plazma na tokamaku"
   ],
-  "ZFM1": ["Neprime mereni", "ХЗЧТО", "ZFM_1"],
-  "ZFM2": ["ZFM_2"],
+  "ZFM": ["Neprime mereni", "ХЗЧТО", "ZFM_1", "ZFM_2", "ZFM_12"],
   "SPRA": [
     "1-Zeeman",
     "2-Kvantove smazani",
@@ -160,7 +159,8 @@ const subjectLinks = {
   ],
   "MECH": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1-MhqcEpcMXONjboWoEGnQFin_zLsb2vK" },
-    { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1kTUrv3vkYvKrXney2cxiulcC0F6-kXcX" }
+    { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1kTUrv3vkYvKrXney2cxiulcC0F6-kXcX" },
+    { label: "ССЫЛКА 3", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AKK2se-roTH31UjN1cIQe58/1.%20ročník/MECH?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
   ],
   "KTPA": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/10sAbMhn9P3UbmiIwROVnWXoAL0-UZc-h" },
@@ -182,17 +182,21 @@ const subjectLinks = {
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1Qmky0a_ji4hVip2rUyudCqDyAXYFbFwl" },
     { label: "ССЫЛКА 2", url: "https://zapisky.adamator.eu/voafcv" },
     { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/11Zh3Ejl8v_vg9xwR7twnPa0ETcpziFp_" },
+    { label: "ССЫЛКА 4", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ALvGvHiWZOEISVDMTh9eTx4/2.%20ročník/zimní/VOAF?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
   ],
   "TSFA": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1JodAUKfqnSry8PR-jAUZcNDRJG5H_JV8" },
     { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1mkbzUkEE7v9J0DkAC-tY7YdESE73AitI" },
-    { label: "ССЫЛКА 3", url: "https://drive.google.com/file/d/1-0jDj0uSFlpi0ekqfiJcrZymBOQ6165A/view?usp=drive_link" }
+    { label: "ССЫЛКА 3", url: "https://drive.google.com/file/d/1-0jDj0uSFlpi0ekqfiJcrZymBOQ6165A/view?usp=drive_link" },
+    { label: "ССЫЛКА 4", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AK1DXAGdihJx9IWk0dtS63k/2.%20ročník/letní/TSFA?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
   ],
   "TEF": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1mCq8bMPWzsEmHjnuRwelkKc7Qf9hwO-x" },
     { label: "ССЫЛКА 2", url: "https://drive.google.com/drive/folders/1EtM4ZkcAuZOu8ccysjgxMYb-DP0CPFkh" },
     { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/1oPDq3DSO7DZ_mdTfk7XKOUMcUn26LVnq" },
-    { label: "ССЫЛКА 4", url: "https://drive.google.com/drive/folders/1h6pSrOQWGlYgGar7wVAJBDVySk2P8JCB" }
+    { label: "ССЫЛКА 4", url: "https://drive.google.com/drive/folders/1h6pSrOQWGlYgGar7wVAJBDVySk2P8JCB" },
+    { label: "TEF_2", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AC67ZHK-GW2FcvfVHkwt1qA/2.%20ročník/letní/TEF2?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "TEF_12", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AJzZbq47pjww5rWpMNB4xmo/2.%20ročník/zimní/TEF?rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1&dl=0" }
   ],
   "TER": [
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1A4cRkf20gyWGVKZKkbPlIHtAVX6PhXvq" },
@@ -245,7 +249,15 @@ const subjectLinks = {
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1SOJC_grsDUXPQ9knTNK8sz87HdSYW9yR" }
   ],
   "NME": [
-    { label: "ССЫЛКА 1", url: "https://www.dropbox.com/scl/fo/ubw0fgf1bdoyi2uwyv5sh/ABMWQHTO-9mHo4DnmXusjZ4/NME?e=1&fbclid=IwAR2BBhgwOoLF8BVKbcbCXqB6TmJI-0hMMboDqUfEWB59Uh6ma_O2D1dXmk0&rlkey=u3gntyx8rlo5z7wwbj7ayf9g1&subfolder_nav_tracking=1&dl=0" }
+    { label: "ССЫЛКА 1", url: "https://www.dropbox.com/scl/fo/ubw0fgf1bdoyi2uwyv5sh/ABMWQHTO-9mHo4DnmXusjZ4/NME?e=1&fbclid=IwAR2BBhgwOoLF8BVKbcbCXqB6TmJI-0hMMboDqUfEWB59Uh6ma_O2D1dXmk0&rlkey=u3gntyx8rlo5z7wwbj7ayf9g1&subfolder_nav_tracking=1&dl=0" },
+    { label: "NME_1", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/APpWDz00LJKAFYaKDw10pnA/2.%20ročník/letní/NME1?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" },
+    { label: "NME_2", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AHI6ICnuIgHMUr8hyOWBrG0/3.%20ročník/letní/NME2?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
+  ],
+  "RMF": [
+    { label: "RMF", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/APtBPa-UyKF44ySYKu_io1w/3.%20ročník/zimní/RMF?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
+  ],
+  "PRST": [
+    { label: "PRST", url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/ACs78-dRu4hwZVQmTAcYrhw/3.%20ročník/zimní/PRST?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1" }
   ],
 };
 
@@ -340,10 +352,13 @@ const pdfPaths = {
     { url: "https://drive.google.com/drive/folders/1JN_lBpwnRZTvDQgr3Uf9hXmDf-r6E-q8", label: "ССЫЛКА 1" }
   ],
   "ZFM_1": [
-    { url: "https://drive.google.com/drive/folders/1le9gEs5g1xVjujM7PVf5FBdQ6vZEW9um", label: "ССЫЛКА 1" }
+    { url: "https://drive.google.com/drive/folders/1le9gEs5g1xVjujM7PVf5FBdQ6vZEW9um", label: "ZFM_1" }
   ],
   "ZFM_2": [
-    { url: "https://drive.google.com/drive/folders/1qh8kYXFhgSpB86IBj-K-xSJbbBg2urwC", label: "ССЫЛКА 1" }
+    { url: "https://drive.google.com/drive/folders/1qh8kYXFhgSpB86IBj-K-xSJbbBg2urwC", label: "ZFM_2" }
+  ],
+  "ZFM_12": [
+    { url: "https://www.dropbox.com/scl/fo/kvg50umqp5u9szrbnah7z/AF-x1k6-ZppdD2lIb6S19Zg/1.%20ročník/ZFM12?dl=0&rlkey=odthds363lfajo81rxb3sug9f&subfolder_nav_tracking=1", label: "ZFM_12" }
   ],
   "STUDBI": "img/STUDBI.jpg",
   "Neprime mereni": "Protokoly/ZFM1/Neprime-mereni.pdf",
@@ -406,7 +421,7 @@ function showWindowC() {
   const years = [
     { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","TER","UING","CHEMIE","DIM","UJRF"] },
     { text: "2 год", subjects: ["TEF","TSFA","VOAF","ANB34\ANA34","DIFR","NMA","NME"] },
-    { text: "3 год", subjects: ["FKO","FAN","SF"] },
+    { text: "3 год", subjects: ["FKO","FAN","SF","RMF","PRST"] },
     { text: "Магистр", subjects: ["KTPA"]},
     { text: "Гуманитарная хуета", subjects: ["Языки","Право","Этика","Риторика"]}
   ];
