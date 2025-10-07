@@ -27,6 +27,12 @@ header {
   animation: scroll 15s linear infinite, color-change 5s linear infinite;
 }
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
 @media (max-width: 480px) {
     .chat {
         position: fixed !important;

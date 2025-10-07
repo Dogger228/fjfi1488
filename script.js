@@ -102,6 +102,7 @@ nicknameInput.addEventListener('keypress', (e) => {
   if(e.key === 'Enter') messageInput.focus();
 });
 
+
 // ===== Твой код для протоколов =====
 const centralBlock = document.getElementById('central-block');
 // Группы и протоколы
@@ -566,6 +567,49 @@ function showWindowC() {
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
+
+// Функция для показа окна Донат
+function showDonateWindow() {
+    centralBlock.innerHTML = ''; // очищаем
+
+    // Заголовок
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Донат';
+    centralBlock.appendChild(h2);
+
+    // Картинка QR-кода
+    const img = document.createElement('img');
+    img.src = 'img/qrcode.png'; // путь к картинке
+    img.style.maxWidth = '40%';
+    img.style.height = 'auto';
+    img.style.border = '3px solid #333';
+    img.style.borderRadius = '10px';
+    img.style.display = 'block';
+    img.style.margin = '10px auto';
+    centralBlock.appendChild(img);
+
+    // Первый абзац
+    const p1 = document.createElement('p');
+    p1.textContent = 'Спасибо за вашу поддержку! ❤️';
+    centralBlock.appendChild(p1);
+
+    // Второй абзац
+    const p2 = document.createElement('p');
+    p2.textContent = 'Эти средства помогают покрывать расходы на домен (~1$ в месяц) и поддерживать работу сайта. Всё делаю сам, вкладываю время и усилия, чтобы сайт оставался полезным и удобным.';
+    centralBlock.appendChild(p2);
+
+    // Кнопка Назад
+    const backBtn = document.createElement('button');
+    backBtn.className = 'btn';
+    backBtn.textContent = 'Назад';
+    backBtn.style.marginTop = '15px';
+    backBtn.onclick = showMainWindow;
+    centralBlock.appendChild(document.createElement('br'));
+    centralBlock.appendChild(backBtn);
+}
+
+  // Привязываем к кнопке ДОНАТ
+document.getElementById('donate-btn').addEventListener('click', showDonateWindow);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function showSubjects(subjects) {
   centralBlock.innerHTML = `<h2>Предметы</h2>`;
@@ -788,6 +832,7 @@ function showScheduleWindow() {
   centralBlock.appendChild(document.createElement('br'));
   centralBlock.appendChild(backBtn);
 }
+
 
 // Обработчик кликов в центральном блоке
 centralBlock.addEventListener('click', (e) => {
