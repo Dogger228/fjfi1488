@@ -189,6 +189,7 @@ const subjectLinks = {
     { label: "MAN 12", url: "https://drive.google.com/drive/folders/1O-GaFdt9bFBP1_zym2BMVh5mWLJFKmlH" }
   ],
   "VOAF": [
+    { label: "ССЫЛКА 0", url: "https://drive.google.com/drive/folders/1wFsm5wSTQw2Snw4s0tr8dNml0p7ZU5VF" },
     { label: "ССЫЛКА 1", url: "https://drive.google.com/drive/folders/1Qmky0a_ji4hVip2rUyudCqDyAXYFbFwl" },
     { label: "ССЫЛКА 2", url: "https://zapisky.adamator.eu/voafcv" },
     { label: "ССЫЛКА 3", url: "https://drive.google.com/drive/folders/11Zh3Ejl8v_vg9xwR7twnPa0ETcpziFp_" },
@@ -315,6 +316,39 @@ const subjectLinks = {
   ],
   "ZJF": [
     { label: "ZJF", url: "https://edu.fjfi.cvut.cz/studijni-materialy/Bc/3.%20rocnik/ZJF" }
+  ],
+  "ZRIZ": [
+    { label: "ZRIZ", url: "https://drive.google.com/drive/folders/1u7iPUWvIwSi6agIuzBrxiS7k6mxv_0Vo" }
+  ],
+  "ZPP": [
+    { label: "ZPP", url: "https://drive.google.com/drive/folders/1Ym3MEN2PTQut69zJ21WH6km1NXPWTjhs" }
+  ],
+  "ZOMED": [
+    { label: "ZOME", url: "https://drive.google.com/drive/folders/1t0GK_qeRqGlCDxwLefyhTyhBlUxdRHcs" }
+  ],
+  "ZJT": [
+    { label: "ZJT", url: "https://drive.google.com/drive/folders/1p3ulLskm86YZfF6IYwFSTGYk9GW-zhCe" }
+  ],
+  "ZFP": [
+    { label: "ZFP", url: "https://drive.google.com/drive/folders/1CMzOrhwD_xtjZ8_0NkUJLESK7l3imL2i" }
+  ],
+  "ZELW": [
+    { label: "ZELW", url: "https://drive.google.com/drive/folders/11HoMiL9rfGaDz3WInJxDsF3VQdu583NQ" }
+  ],
+  "ZEL": [
+    { label: "ZEL_2", url: "https://drive.google.com/drive/folders/1bW5W3H8F_fxyztPO0uipUPNCHnAQFFH1" },
+    { label: "ZEL_1", url: "https://drive.google.com/drive/folders/196aEyD5I79KqwHUuT1EFO4RCy83HKke3" }
+  ],
+  "ZDOZ": [
+    { label: "ZDOZ_2", url: "https://drive.google.com/drive/folders/1QcuCx69rKgpaaW16X1ICYq6pJSUSga4L" },
+    { label: "ZDOZ_1", url: "https://drive.google.com/drive/folders/1SS8JEYfQQO_hwhKsotxDnG4muS0qEl0j" }
+  ],
+  "ZBAF": [
+    { label: "ZBAF_2", url: "https://drive.google.com/drive/folders/1E_8l8TZtaFZmgvPZrCwoLc7iG00RwFRo" },
+    { label: "ZBAF_1", url: "https://drive.google.com/drive/folders/1OrmyVUVBzLWG90E_OAYY2zlXytbvOm46" }
+  ],
+  "VPJRS": [
+    { label: "VPJRS", url: "https://drive.google.com/drive/folders/13mr0m9mD-8HBfPc63fvhloavvHdxziim" }
   ],
 };
 
@@ -509,10 +543,10 @@ function showWindowC() {
   centralBlock.innerHTML = `<h2>Предметы</h2>`;
 
   const years = [
-    { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","TER","UING","CHEMIE","DIM","UJRF"] },
-    { text: "2 год", subjects: ["TEF","TSFA","VOAF","ANB34\ANA34","DIFR","NMA","NME","UKP","STR","LCF"] },
-    { text: "3 год", subjects: ["FKO","FAN","SF","RMF","PRST","GMF","KVAN","ZJF","DEM","ALGE"] },
-    { text: "Магистр", subjects: ["KTPA","GTO"]},
+    { text: "1 год", subjects: ["ELMA","MECH","MAN","LAL","TER","UING","CHEMIE","DIM","UJRF","ZPP"] },
+    { text: "2 год", subjects: ["TEF","TSFA","VOAF","ANB34\ANA34","DIFR","NMA","NME","UKP","STR","LCF","ZRIZ","ZOMED","ZJT","ZEL","ZDOZ","ZBAF"] },
+    { text: "3 год", subjects: ["FKO","FAN","SF","RMF","PRST","GMF","KVAN","ZJF","DEM","ALGE","ZFP"] },
+    { text: "Магистр", subjects: ["KTPA","GTO","ZELW","VPJRS"]},
     { text: "Гуманитарная хуета", subjects: ["Языки","Право","Этика","Реторика"]}
   ];
 
