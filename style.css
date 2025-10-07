@@ -1,0 +1,208 @@
+header {
+  width: 100%;
+  background-color: rgba(0,0,102,0.8);
+  border-bottom: 2px solid #ff9900;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(0,0,51,0.7); /* полупрозрачный фон для выделения текста */
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-right: 150px; /* расстояние между повторами */
+  font-size: 36px; /* размер текста */
+  font-weight: 900;
+  font-family: 'Arial Black', sans-serif; /* жирный читаемый шрифт */
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px #000000, 0 0 10px #ff9900;
+  animation: scroll 15s linear infinite, color-change 5s linear infinite;
+}
+
+@media (max-width: 480px) {
+    .chat {
+        position: fixed !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 50% !important;
+    }
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes color-change {
+  0%   { color: #e74c3c; }
+  25%  { color: #f1c40f; }
+  50%  { color: #2ecc71; }
+  75%  { color: #3498db; }
+  100% { color: #e74c3c; }
+}
+
+body {
+  margin: 0;
+  font-family: "Tahoma", sans-serif;
+  background: url('img/M3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+#bear-fixed {
+  position: fixed;
+  bottom: -5px;  /* отступ снизу */
+  left: 0px;   /* отступ справа */
+  z-index: 9999; /* поверх всего */
+}
+
+#bear-fixed img {
+  width: 250px;  /* размер гифки */
+  height: auto;
+  pointer-events: none; /* чтобы не мешал кликам */
+}
+
+header {
+  background: rgba(0,0,102,0.8);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ffff00;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #ffff00;
+  text-shadow: 2px 2px #000000;
+}
+
+nav {
+  background: rgba(0,0,128,0.8);
+  border-bottom: 2px solid #ff9900;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li { margin: 0 15px; }
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #ff9900;
+  color: #000000;
+}
+
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  margin: 30px auto;
+  width: 95%;
+  max-width: 1400px;
+  gap: 20px;
+  height: calc(100vh - 150px);
+  flex-direction: row;
+}
+
+.banner-block {
+  flex: none;
+  width: 160px;      /* ширина баннера */
+  height: 300px;      /* высота баннера */
+  background-color: rgba(255,255,255,0.8);
+  color: #000;
+  padding: 10px;
+  border: 2px solid #000033;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.central-block {
+  flex: 2;
+  background-color: rgba(0,0,51,0.6);
+  padding: 20px;
+  border: 2px solid #ffff00;
+  box-shadow: 5px 5px 0 #ff9900;
+  border-radius: 10px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+h2 { color: #ffff00; text-shadow: 1px 1px #000000; }
+p { line-height: 1.6; }
+
+.btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background: #ff9900;
+  color: #000033;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #ffff00;
+  cursor: pointer;
+}
+.btn:hover { background: #ffff00; color: #000033; }
+
+.chat-block {
+  flex: 1;
+  min-width: 150px;
+  background-color: #ffffff;
+  color: #000;
+  padding: 15px;
+  border: 3px solid #000000;
+  border-radius: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-block h3 { margin-top: 0; text-align: center; }
+.chat-box {
+  flex: 1;                 /* уже есть */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  overflow-y: auto;         /* вертикальная прокрутка */
+  margin-top: 10px;
+  padding: 5px;
+  max-height: 200px;        /* ограничиваем высоту */
+}
+
+footer {
+  background: rgba(0,0,128,0.8);
+  color: #ffff00;
+  text-align: center;
+  padding: 5px;
+  border-top: 2px solid #ff9900;
+}
+
+input[type="text"] {
+  width: calc(100% - 10px);
+  margin-top: 5px;
+  padding: 5px;
+}
