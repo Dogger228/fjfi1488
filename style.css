@@ -6,6 +6,20 @@ header {
   box-sizing: border-box;
 }
 
+.banner-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* левое выравнивание */
+  gap: 10px; /* расстояние между баннером и видео */
+}
+
+.video-box video {
+  border: 2px solid #ffffff; /* рамка */
+  border-radius: 8px;         /* скругление */
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
 .marquee {
   display: flex;
   overflow: hidden;
@@ -136,7 +150,7 @@ nav a:hover {
 .banner-block {
   flex: none;
   width: 160px;      /* ширина баннера */
-  height: 300px;      /* высота баннера */
+  height: 400px;      /* высота баннера */
   background-color: rgba(255,255,255,0.8);
   color: #000;
   padding: 10px;
