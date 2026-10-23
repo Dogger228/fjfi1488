@@ -1,0 +1,48 @@
+VOAF 24.01
+1) Difrakce - dva otvory
+2) Je dána funkce potenciálu jako kvadratická rovnice pro malé kmity
+3) Polarizace destička a filtr
+4) Najít grupovou a fázovou rychlost pomocí n=n + alpha*omega(n)
+
+VOAF 20.01
+1) Telegrafní vedení
+2) Superpozice pro 2 zdroje na z v -d a 3d
+3) Stokesovy parametry v závislosti na alpha v argumentu -y*sin
+4) Vypočitat grupovou a fazovou rychlost  z relace neurčitosti pomocí 2 frekvencí
+
+Voaf 1.2:
+1. Tři hmotné body(hmotnosti m,M,m) a dvě pružinky,jako model CO2. Najít pohybové rovnice, frekvence, obecné řešení módů.
+2. Ukázat že superpozice postupných vln je postupná vlna. Zjistit jestli pro střední hodnoty toku energie platí superpozice.
+3. Vypočítat disperzní vztah prostředí zadané vlnovou rovnici .... a říct kdy je transparentní a kdy reaktivní(stejná rovnice jako v loňských pisemkách)
+4. Známe matici D, vypočíst T a R pro vlnu dopadající zprava.
+
+VOAF 25.1.2022
+1. Příklad 7.6 (7.10)
+2. Příklad 11.6 s délkami stran obdelníku a, 2a. Navíc se měla určit intenzita a minima, které jsme měli zakreslit do grafu
+3.Vypočítání Stokesových koef. ze zadaného E=a×E0×x×coswt+E0×y×sinwt, kde 0<=a<=1. Dále se určoval druh polarizace pro a=1, a=0 a P se vykreslovaly do grafu
+4. Zadaná konkrétní 3D harm. vlna. Z předpisu se určovala perioda, vlnová délka, směr šíření a ještě cosi.
+
+[VOAF]
+Písemka:
+1, (15b)
+Mezi dvě ideální homogenní vedení o impedancích Z1 a Z2 je pararelně vložen svodový odpor Rs. Nalezte vztah mezi proudovou a napěťovou vlnou dosazením dAlembert. řešení do telegraf rovnic (byly v zadání), Zapište podmínky napojení mezi dvěma vedeními s vloženým svodovým odporem. Odvoďte vztahy koef. odrazu a průchodu po napěťovou vlnu šířící se z minus nekonečna veselením o impedanci Z1. Spočtěte jaký musí být odpor Rs, aby nedocházelo k odrazu.
+(Byl 3. zápočetní úkol)
+2,(10b)
+Potenciální funkce systému se dvěma stupni volnosti popsanými souřadnicemi x1 a x2 vypadá takto... Nalezněte souřadnice rovnovážné polohy. Zaveďte nové souřadnice odměřující výchylku systému z rovnovážné polohy. Převeďte potenciál do těchto souřadnic. Nalezněte matici U z úlohy malých kmitů.
+3,(10b)
+Polarizační stavy monochromatické rovinné vlny postupující v kladném směru osy z jsou jednoznačně určeny Stokesovými parametry (vypsané definice P1,P2,P3). Vypočítejte tyto parametry pro lineárně polarizované světlo, jehož rovina polarizace svírá s osou z úhel fí. Specializujte výsledek pro světlo polarizované ve směru osy x, resp. osy y. Nakonec výsledky
+(řešeno na cvičení)
+4,(5b)
+Televizní vysílání DVB-T2 je tvořeno několika tzv. multiplexy, které jsou vysílané na frekvencích rozsahu 177,5 až 858,0 MHz  každá s šířkou kanálu 1,7 až 10 MHz. Na základě těchto informací odhadněte  maximální přenosovou rychlost jednoho multiplexu v Mbps.
+(bylo již v minulých testech, je obdoba příkladu s wifi z cvičení)
+Ústní:
+Postupně začal rozdávat lístečky s otázkami. Vždy jedna z vln a druhá z EM. Šlo se podle výsledků písemky. První 4 dostali zadání a ostatní je postupně nahrazovali když skončili. Je neomezeně času a můžete si ho přivolat i když máte hotovou jen část a potom dále pokračovat.
+
+Včerejší písemka: 1) struna s jedním pevným a druhým volným koncem 2) Fraunhoferův difrakční obrazec pro obdélníkový otvor 3) 2 zdroje kmitání vysílající vlny do obou směrů 4) určit koeficienty R,P pro vlnu jdoucí zprava, když známe matici D.
+Ústní: Bylo nás tam 5, zkoušel postupně - vzal první 3, kdo první odešel, tak ho vystřídal 4. v pořadí, pak jak odešel někdo další tak šel poslední, na přípravu v zásadě neomezeně času... já šla poslední a z Břehovky jsem odcházela před 6, tak opravdu doporučuji hodně energie a pevný nervy sebou😀 jinak je mega hodnej, pokud člověk ví, ale nemůže si vzpomenout, tak pomůže.
+
+[VOAF]
+Písemka: 1) podélné kmity dvou závažíček(15 b.), 2) najít R, P pro napojení dvou strun z impedancí Z_1, Z_2 a pak napsat co se děje, když mají vlny stejné T a ró. (spíše teoreticky zaměřené, bylo vyjádřeno na přednášce) (10 b.), 3) byly zadány rovnice pro vektory E,B (ale úplně ty základní, pomocí amplitudy a směrového vektoru a vlnového vektoru) a mělo se dokázat, že splňují Maxwelky a pak spočítat tok energie (Poyntingův vektor) a ještě jeho časovou střední hodnotu a kdy se rovná nule. (10 b.), 4) byly zadány dvě vlnové délky světla, které dopadalo na difrakční mřížku a ve 2. řádě se překrývaly(dublet). Mělo se vypočítat kolik vrypů musí být v 1 mm, aby je bylo možné vlnové délky rozlišit. (5 b.)
+Ústní: probíhala přesně, jak bylo informováno. Velice příjemná zkouška. Ale dává si docela záležet na polarizaci, takže tu je důležité umět.
+Neupřesněná informace: Údajně, pokud budou obsazeny dvě učebny, tak se lidé nesmí míchat mezi sebou z epidemiologických důvodů. To znamená, že Schmidt nemůže zkoušet všechny, jedině že by přebíhal, což ale asi nebude stíhat. Takže je možné, že bude zkoušet i pan Vysoký. Ale zatím to není jisté.
+

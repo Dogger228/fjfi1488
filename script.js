@@ -3,6 +3,89 @@ document.getElementById("studlink").addEventListener("click", (e) => {
   showPdfWindow('', 'STUDBI', true);
 });
 
+
+
+
+
+
+
+
+
+
+let currentRad = 0.14;
+const radValueEl = document.getElementById('rad-value');
+const radStatusText = document.getElementById('rad-status-text');
+const radDot = document.querySelector('.rad-dot');
+const radContainer = document.querySelector('.radiation-status'); // Для подсветки рамки при ЧП
+
+// Каждые 3 секунды радиационный фон ползет вверх
+setInterval(() => {
+  // Увеличиваем значение на случайную небольшую величину
+  currentRad += Math.random() * 0.03;
+  radValueEl.textContent = currentRad.toFixed(2);
+
+  // Логика смены статусов и цветов в зависимости от уровня радиации
+  if (currentRad < 1.0) {
+    // 1. Зелёная норма (но с бункерным юмором)
+    radValueEl.style.color = '#39ff14';
+    if (radStatusText) {
+      radStatusText.textContent = "НОРМА (НО ПОСВЕЧИВАЕМ)";
+      radStatusText.style.color = '#39ff14';
+    }
+    if (radDot) radDot.style.backgroundColor = '#39ff14';
+  } 
+  else if (currentRad >= 1.0 && currentRad < 2.5) {
+    // 2. Повышенный
+    radValueEl.style.color = '#ff9900';
+    if (radStatusText) {
+      radStatusText.textContent = "ПОВЫШЕННЫЙ ФОН";
+      radStatusText.style.color = '#ff9900';
+    }
+    if (radDot) radDot.style.backgroundColor = '#ff9900';
+  } 
+  else if (currentRad >= 2.5 && currentRad < 4.5) {
+    // 3. Критический
+    radValueEl.style.color = '#ff5500';
+    if (radStatusText) {
+      radStatusText.textContent = "КРИТИЧЕСКИЙ УРОВЕНЬ";
+      radStatusText.style.color = '#ff5500';
+    }
+    if (radDot) radDot.style.backgroundColor = '#ff5500';
+  } 
+  else if (currentRad >= 4.5) {
+    // 4. Полный выброс и тревога
+    radValueEl.style.color = '#ff0055';
+    if (radStatusText) {
+      radStatusText.textContent = "ЯДЕРНЫЙ ВЫБРОС!";
+      radStatusText.style.color = '#ff0055';
+    }
+    if (radDot) radDot.style.backgroundColor = '#ff0055';
+    if (radContainer) {
+      radContainer.style.borderColor = '#ff0055';
+      radContainer.style.boxShadow = '0 0 15px rgba(255, 0, 85, 0.8)';
+    }
+  }
+}, 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ===== Firebase =====
 const firebaseConfig = {
   apiKey: "AIzaSyBxNTmQR9HKfi1iz_piobs_MgnLIetmSnc",
@@ -146,7 +229,7 @@ const groups = {
     "4-Heizenberg",
     "5-Generování náhodných čísel"
   ],
-  "Общие": ["Navod", "Файл2"]
+  "Общие": ["Český návod", "Anglický návod"]
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////м
 const subjectLinks = {
@@ -471,8 +554,8 @@ const pdfPaths = {
   "3-LIDAR": "Protokoly/SPRA/3/LIDAR.pdf",
   "4-Heizenberg": "Protokoly/SPRA/4/Heizenberg.pdf",
   "5-Generování náhodných čísel": "Protokoly/SPRA/5/Generovani-nahodnych-cisel.pdf",
-  "Navod": "Protokoly/Common/Navod(TabulkyObrazky).pdf",
-  "Файл2": "img/fw.jpg",
+  "Český návod": "Protokoly/Common/ZM1.pdf",
+  "Anglický návod": "Protokoly/Common/ZM2.pdf",
   "ХЗЧТО": [
     { url: "https://drive.google.com/drive/folders/1JN_lBpwnRZTvDQgr3Uf9hXmDf-r6E-q8", label: "ССЫЛКА 1" }
   ],
@@ -781,10 +864,10 @@ function showScheduleWindow2() {
   centralBlock.innerHTML = `<h2>Расписания языков</h2>`;
 
   const schedules = [
-    {text: 'Бакалавр 1 год', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_JAZ_BS1.pdf'},
-    {text: 'Бакалавр 2 год', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_JAZ_BS2.pdf'},
-    {text: 'Бакалавр 3 год', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_JAZ_BS3.pdf'},
-    {text: 'Магистр', link: 'https://rozvrh.fjfi.cvut.cz/pdf/B251_APIN.pdf'}
+    {text: 'Бакалавр 1 год', link: 'https://rozvrh.fjfi.cvut.cz/uploads/rozvrh/dokumenty/B261_JAZ_BS1.pdf'},
+    {text: 'Бакалавр 2 год', link: 'https://rozvrh.fjfi.cvut.cz/uploads/rozvrh/dokumenty/B261_JAZ_BS2.pdf'},
+    {text: 'Бакалавр 3 год', link: 'https://rozvrh.fjfi.cvut.cz/uploads/rozvrh/dokumenty/B261_JAZ_BS3.pdf'},
+    {text: 'Магистр', link: 'https://rozvrh.fjfi.cvut.cz/uploads/rozvrh/dokumenty/B261_JAZ_NMS.pdf'}
   ];
 
   schedules.forEach(s=>{
